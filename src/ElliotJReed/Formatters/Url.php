@@ -1,15 +1,15 @@
 <?php
 declare(strict_types=1);
 
-namespace App\Formatters;
+namespace ElliotJReed\Formatters;
 
 class Url implements Formatter
 {
     public function format(string $string): string
     {
-        $nonAlphaNumericReplacesWithDash = preg_replace('~[^\pL\d]+~u', '-', $string);
-        $transliteration = iconv('UTF-8', 'ASCII//TRANSLIT', $nonAlphaNumericReplacesWithDash);
-        $cleaned = preg_replace('~[^-\w]+~', '', $transliteration);
+        $transliteration = iconv('UTF-8', 'ASCII//TRANSLIT', $string);
+        $nonAlphaNumericReplacesWithDash = preg_replace('~[^\pL\d]+~u', '-', $transliteration);
+        $cleaned = preg_replace('~[^-\w]+~', '', $nonAlphaNumericReplacesWithDash);
         $trimmed = trim($cleaned, '-');
         $duplicateDashesRemoved = preg_replace('~-+~', '-', $trimmed);
 

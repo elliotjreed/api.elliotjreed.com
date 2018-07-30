@@ -1,9 +1,9 @@
 <?php
 declare(strict_types=1);
 
-namespace App\Tests\Formatters;
+namespace Tests\ElliotJReed\Formatters;
 
-use App\Formatters\Url;
+use ElliotJReed\Formatters\Url;
 use PHPUnit\Framework\TestCase;
 
 class UrlTest extends TestCase

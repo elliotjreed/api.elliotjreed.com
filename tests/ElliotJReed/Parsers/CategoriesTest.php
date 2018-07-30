@@ -1,10 +1,10 @@
 <?php
 declare(strict_types=1);
 
-namespace App\Tests\Parsers;
+namespace Tests\ElliotJReed\Parsers;
 
-use App\Formatters\Url;
-use App\Parsers\Categories;
+use ElliotJReed\Formatters\Url;
+use ElliotJReed\Parsers\Categories;
 use PHPUnit\Framework\TestCase;
 
 class CategoriesTest extends TestCase

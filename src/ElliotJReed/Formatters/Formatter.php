@@ -1,7 +1,7 @@
 <?php
 declare(strict_types=1);
 
-namespace App\Formatters;
+namespace ElliotJReed\Formatters;
 
 interface Formatter
 {

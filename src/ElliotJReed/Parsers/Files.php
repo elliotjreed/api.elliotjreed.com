@@ -1,9 +1,9 @@
 <?php
 declare(strict_types=1);
 
-namespace App\Parsers;
+namespace ElliotJReed\Parsers;
 
-use App\Formatters\Url;
+use ElliotJReed\Formatters\Url;
 use DateTime;
 
 class Files implements Parser
