@@ -1,0 +1,84 @@
+{
+  "name": "elliotjreed/api.elliotjreed.com",
+  "description": "",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Elliot J. Reed",
+      "email": "github-contact@elliotjreed.com",
+      "homepage": "https://www.elliotjreed.com",
+      "role": "Developer"
+    }
+  ],
+  "type": "project",
+  "require": {
+    "php": "^7.2",
+    "ext-ctype": "*",
+    "ext-iconv": "*",
+    "ext-json": "*",
+    "sensio/framework-extra-bundle": "^5.2",
+    "symfony/console": "^4.1",
+    "symfony/flex": "^1.0",
+    "symfony/framework-bundle": "^4.1",
+    "symfony/lts": "^4@dev"
+  },
+  "require-dev": {
+    "php-coveralls/php-coveralls": "^2.1",
+    "squizlabs/php_codesniffer": "^3.3",
+    "symfony/browser-kit": "^4.1",
+    "symfony/dotenv": "^4.1",
+    "symfony/phpunit-bridge": "^4.1",
+    "symfony/web-server-bundle": "^4.1"
+  },
+  "config": {
+    "preferred-install": {
+      "*": "dist"
+    },
+    "sort-packages": true
+  },
+  "autoload": {
+    "psr-4": {
+      "App\\": "src/"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "App\\Tests\\": "tests/"
+    }
+  },
+  "replace": {
+    "symfony/polyfill-ctype": "*",
+    "symfony/polyfill-iconv": "*",
+    "symfony/polyfill-php71": "*",
+    "symfony/polyfill-php70": "*",
+    "symfony/polyfill-php56": "*"
+  },
+  "scripts": {
+    "test": [
+      "@composer-validate",
+      "@phpunit",
+      "@phpcs"
+    ],
+    "phpunit": "php vendor/bin/simple-phpunit -c phpunit.xml --coverage-text",
+    "phpcs": "php vendor/bin/phpcs --standard=ruleset.xml",
+    "composer-validate": "composer validate --no-interaction --ansi --with-dependencies",
+    "auto-scripts": {
+      "cache:clear": "symfony-cmd",
+      "assets:install %PUBLIC_DIR%": "symfony-cmd"
+    },
+    "post-install-cmd": [
+      "@auto-scripts"
+    ],
+    "post-update-cmd": [
+      "@auto-scripts"
+    ]
+  },
+  "conflict": {
+    "symfony/symfony": "*"
+  },
+  "extra": {
+    "symfony": {
+      "allow-contrib": false
+    }
+  }
+}

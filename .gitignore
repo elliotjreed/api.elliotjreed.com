@@ -1,0 +1,10 @@
+/.env
+/public/bundles/
+/var/
+/vendor/
+/coverage/
+/.idea
+/.web-server-pid
+
+.phpunit
+/phpunit.xml.dist
