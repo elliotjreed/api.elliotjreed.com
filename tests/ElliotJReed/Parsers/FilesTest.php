@@ -1,7 +1,7 @@
 <?php
 declare(strict_types=1);
 
-namespace Tests\ElliotJReed\Parsers;
+namespace ElliotJReed\Tests\Parsers;
 
 use ElliotJReed\Formatters\Url;
 use ElliotJReed\Parsers\Files;
@@ -20,30 +20,28 @@ class FilesTest extends TestCase
 
         $parsed = (new Files(new Url()))->parse($json);
 
-        $expected = '[
-          {
-            "title": "My First Test File",
-            "link": "1970-01-01+12%3A00%3A00+My+First+Test+File.txt",
-            "slug": "my-first-test-file",
-            "created": "1970-01-01T12:00:00+00:00",
-            "modified": "1970-01-01T13:00:00+00:00"
-          },
-          {
-            "title": "My Second Test File",
-            "link": "1970-01-02+13%3A30%3A00+My+Second+Test+File.txt",
-            "slug": "my-second-test-file",
-            "created": "1970-01-02T13:30:00+00:00",
-            "modified": "1970-01-02T13:45:00+00:00"
-          },
-          {
-            "title": "My Third Test File",
-            "link": "1970-01-03+14%3A45%3A00+My+Third+Test+File.txt",
-            "slug": "my-third-test-file",
-            "created": "1970-01-03T14:45:00+00:00",
-            "modified": "1970-01-03T14:45:00+00:00"
-          }
-        ]';
+        $this->assertEquals([
+            'title' => 'My First Test File',
+            'link' => '1970-01-01+12%3A00%3A00+My+First+Test+File.txt',
+            'slug' => 'my-first-test-file',
+            'created' => '1970-01-01T12:00:00+00:00',
+            'modified' => '1970-01-01T13:00:00+00:00'
+        ], $parsed[0]);
 
-        $this->assertJsonStringEqualsJsonString($expected, $parsed);
+        $this->assertEquals([
+            'title' => 'My Second Test File',
+            'link' => '1970-01-02+13%3A30%3A00+My+Second+Test+File.txt',
+            'slug' => 'my-second-test-file',
+            'created' => '1970-01-02T13:30:00+00:00',
+            'modified' => '1970-01-02T13:45:00+00:00'
+        ], $parsed[1]);
+
+        $this->assertEquals([
+            'title' => 'My Third Test File',
+            'link' => '1970-01-03+14%3A45%3A00+My+Third+Test+File.txt',
+            'slug' => 'my-third-test-file',
+            'created' => '1970-01-03T14:45:00+00:00',
+            'modified' => '1970-01-03T14:45:00+00:00'
+        ], $parsed[2]);
     }
 }

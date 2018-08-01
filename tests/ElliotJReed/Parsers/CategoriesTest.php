@@ -1,7 +1,7 @@
 <?php
 declare(strict_types=1);
 
-namespace Tests\ElliotJReed\Parsers;
+namespace ElliotJReed\Tests\Parsers;
 
 use ElliotJReed\Formatters\Url;
 use ElliotJReed\Parsers\Categories;
@@ -19,21 +19,18 @@ class CategoriesTest extends TestCase
 
         $parsed = (new Categories(new Url()))->parse($json);
 
-        $expected = '[
-          {
-            "title": "Category One",
-            "link": "Category+One",
-            "slug": "category-one",
-            "modified": "1970-01-01T00:00:00+00:00"
-          },
-          {
-            "title": "Category Two",
-            "link": "Category+Two",
-            "slug": "category-two",
-            "modified": "1970-01-02T12:00:00+00:00"
-          }
-        ]';
+        $this->assertEquals([
+            'title' => 'Category One',
+            'link' => 'Category+One',
+            'slug' => 'category-one',
+            'modified' => '1970-01-01T00:00:00+00:00'
+        ], $parsed[0]);
 
-        $this->assertJsonStringEqualsJsonString($expected, $parsed);
+        $this->assertEquals([
+            'title' => 'Category Two',
+            'link' => 'Category+Two',
+            'slug' => 'category-two',
+            'modified' => '1970-01-02T12:00:00+00:00'
+        ], $parsed[1]);
     }
 }

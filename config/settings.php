@@ -5,7 +5,7 @@ use Monolog\Logger;
 
 return [
     'settings' => [
-        'displayErrorDetails' => false,
+        'displayErrorDetails' => true,
         'addContentLengthHeader' => false,
         'logger' => [
             'name' => 'api',

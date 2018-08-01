@@ -15,7 +15,7 @@ class Categories implements Parser
         $this->urlFormatter = $urlFormatter;
     }
 
-    public function parse(string $source): string
+    public function parse(string $source): array
     {
         $listing = json_decode($source);
 
@@ -31,6 +31,6 @@ class Categories implements Parser
             }
         }
 
-        return json_encode($categories);
+        return $categories;
     }
 }

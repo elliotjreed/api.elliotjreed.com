@@ -1,7 +1,7 @@
 <?php
 declare(strict_types=1);
 
-namespace Tests\ElliotJReed\Formatters;
+namespace ElliotJReed\Tests\Formatters;
 
 use ElliotJReed\Formatters\Url;
 use PHPUnit\Framework\TestCase;

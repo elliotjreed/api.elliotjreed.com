@@ -15,7 +15,7 @@ class Files implements Parser
         $this->urlFormatter = $urlFormatter;
     }
 
-    public function parse(string $source): string
+    public function parse(string $source): array
     {
         $files = [];
         foreach (json_decode($source) as $item) {
@@ -31,7 +31,7 @@ class Files implements Parser
             }
         }
 
-        return json_encode($files);
+        return $files;
     }
 
     private function extractTitleFromFilename(string $fileName): string

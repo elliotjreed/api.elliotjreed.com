@@ -4,8 +4,8 @@ declare(strict_types=1);
 namespace ElliotJReed\Actions;
 
 use Psr\Container\ContainerInterface;
-use Psr\Http\Message\ServerRequestInterface;
-use Psr\Http\Message\ResponseInterface;
+use Slim\Http\Request;
+use Slim\Http\Response;
 
 class Categories implements Action
 {
@@ -16,8 +16,8 @@ class Categories implements Action
         $this->categoriesParser = $container->get('categoriesParser');
     }
 
-    public function __invoke(ServerRequestInterface $request, ResponseInterface $response): ResponseInterface
+    public function __invoke(Request $request, Response $response): Response
     {
-        return $response->withJson($this->categoriesParser->parse('{}'), 200);
+        return $response->withJson($this->categoriesParser->parse(file_get_contents('http://172.17.0.2')), 200);
     }
 }

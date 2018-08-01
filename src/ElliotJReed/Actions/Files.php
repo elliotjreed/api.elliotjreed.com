@@ -4,8 +4,8 @@ declare(strict_types=1);
 namespace ElliotJReed\Actions;
 
 use Psr\Container\ContainerInterface;
-use Psr\Http\Message\ServerRequestInterface;
-use Psr\Http\Message\ResponseInterface;
+use Slim\Http\Request;
+use Slim\Http\Response;
 
 class Files implements Action
 {
@@ -16,7 +16,7 @@ class Files implements Action
         $this->filesParser = $container->get('filesParser');
     }
 
-    public function __invoke(ServerRequestInterface $request, ResponseInterface $response): ResponseInterface
+    public function __invoke(Request $request, Response $response): Response
     {
         return $response->withJson($this->filesParser->parse('{}'), 200);
     }

@@ -1,7 +1,7 @@
 <?php
 declare(strict_types=1);
 
-namespace Tests\ElliotJReed\Actions;
+namespace ElliotJReed\Tests\Actions;
 
 use SplFileObject;
 

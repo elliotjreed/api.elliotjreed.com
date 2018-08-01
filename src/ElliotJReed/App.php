@@ -48,7 +48,7 @@ class App
         $app->add(function (RequestInterface $req, ResponseInterface $res, callable $next) {
             $response = $next($req, $res);
             return $response
-                ->withHeader('Access-Control-Allow-Origin', 'http://fraud-api')
+                ->withHeader('Access-Control-Allow-Origin', 'http://127.0.0.1:8000')
                 ->withHeader('Access-Control-Allow-Headers', 'X-Requested-With, Content-Type, Accept, Origin, Authorization')
                 ->withHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, PATCH, OPTIONS');
         });
