@@ -3,11 +3,12 @@ declare(strict_types=1);
 
 namespace ElliotJReed;
 
-use ElliotJReed\Actions\Categories;
-use ElliotJReed\Actions\Files;
+use ElliotJReed\Actions\Website;
 use ElliotJReed\Formatters\Url;
-use ElliotJReed\Parsers\Categories as CategoriesParser;
-use ElliotJReed\Parsers\Files as FilesParser;
+use ElliotJReed\Mappers\Slug;
+use ElliotJReed\Parsers\NginxIndex;
+use GuzzleHttp\Client;
+use GuzzleHttp\ClientInterface;
 use Monolog\Handler\StreamHandler;
 use Monolog\Logger;
 use Monolog\Processor\UidProcessor;
@@ -33,28 +34,32 @@ class App
                 ->pushHandler(new StreamHandler($settings['path'], $settings['level']));
         };
 
+        $container['guzzle'] = function (ContainerInterface $container): ClientInterface {
+            $settings = $container->get('settings')['api'];
+            return new Client(['base_uri' => $settings['baseUri']]);
+        };
+
         $container['urlFormatter'] = function (): Url {
             return new Url();
         };
 
-        $container['filesParser'] = function (ContainerInterface $container): FilesParser {
-            return new FilesParser($container->get('urlFormatter'));
+        $container['nginxIndexParser'] = function (ContainerInterface $container): NginxIndex {
+            return new NginxIndex($container->get('guzzle'), $container->get('urlFormatter'));
         };
 
-        $container['categoriesParser'] = function (ContainerInterface $container): CategoriesParser {
-            return new CategoriesParser($container->get('urlFormatter'));
+        $container['categorySlugMapper'] = function (ContainerInterface $container): Slug {
+            return new Slug($container->get('categoriesParser'));
         };
 
-        $app->add(function (RequestInterface $req, ResponseInterface $res, callable $next) {
+        $app->add(function (RequestInterface $req, ResponseInterface $res, callable $next): ResponseInterface {
             $response = $next($req, $res);
             return $response
-                ->withHeader('Access-Control-Allow-Origin', 'http://127.0.0.1:8000')
+                ->withHeader('Access-Control-Allow-Origin', 'http://localhost:8000')
                 ->withHeader('Access-Control-Allow-Headers', 'X-Requested-With, Content-Type, Accept, Origin, Authorization')
                 ->withHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, PATCH, OPTIONS');
         });
 
-        $app->get('/files', Files::class);
-        $app->get('/categories', Categories::class);
+        $app->get('/', Website::class);
 
         $this->app = $app;
     }

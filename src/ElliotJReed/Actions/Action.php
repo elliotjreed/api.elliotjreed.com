@@ -10,5 +10,5 @@ use Slim\Http\Response;
 interface Action
 {
     public function __construct(ContainerInterface $container);
-    public function __invoke(Request $request, Response $response): Response;
+    public function __invoke(Request $request, Response $response, array $arguments = []): Response;
 }

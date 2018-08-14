@@ -11,6 +11,9 @@ return [
             'name' => 'api',
             'path' => 'php://stdout',
             'level' => Logger::INFO,
+        ],
+        'api' => [
+            'baseUri' => 'http://172.17.0.2'
         ]
     ]
 ];
