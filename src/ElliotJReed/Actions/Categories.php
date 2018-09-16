@@ -7,17 +7,18 @@ use Psr\Container\ContainerInterface;
 use Slim\Http\Request;
 use Slim\Http\Response;
 
-class Website implements Action
+class Categories implements Action
 {
-    private $nginxIndexParser;
+    private $categories;
 
     public function __construct(ContainerInterface $container)
     {
-        $this->nginxIndexParser = $container->get('nginxIndexParser');
+        /** @var \ElliotJReed\Retrievers\Posts posts */
+        $this->categories = $container->get('categories');
     }
 
     public function __invoke(Request $request, Response $response, array $arguments = []): Response
     {
-        return $response->withJson($this->nginxIndexParser->get('/PHP'));
+        return $response->withJson($this->categories->get(''));
     }
 }

@@ -25,10 +25,10 @@ class TestCase extends PHPUnitTestCase
         ]))->get();
     }
 
-    protected function httpGetRequest(string $url, string $method = 'GET'): ResponseInterface
+    protected function httpGetRequest(string $url): ResponseInterface
     {
         $environment = Environment::mock([
-            'REQUEST_METHOD' => $method,
+            'REQUEST_METHOD' => 'GET',
             'REQUEST_URI' => $url,
         ]);
 

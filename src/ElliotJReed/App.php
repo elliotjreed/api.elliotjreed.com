@@ -6,7 +6,10 @@ namespace ElliotJReed;
 use ElliotJReed\Actions\Website;
 use ElliotJReed\Formatters\Url;
 use ElliotJReed\Mappers\Slug;
-use ElliotJReed\Parsers\NginxIndex;
+use ElliotJReed\Retrievers\Categories;
+use ElliotJReed\Retrievers\NginxIndex;
+use ElliotJReed\Retrievers\Post;
+use ElliotJReed\Retrievers\Posts;
 use GuzzleHttp\Client;
 use GuzzleHttp\ClientInterface;
 use Monolog\Handler\StreamHandler;
@@ -35,16 +38,19 @@ class App
         };
 
         $container['guzzle'] = function (ContainerInterface $container): ClientInterface {
-            $settings = $container->get('settings')['api'];
-            return new Client(['base_uri' => $settings['baseUri']]);
+            return new Client(['base_uri' => $container->get('settings')['api']['baseUri']]);
         };
 
         $container['urlFormatter'] = function (): Url {
             return new Url();
         };
 
-        $container['nginxIndexParser'] = function (ContainerInterface $container): NginxIndex {
-            return new NginxIndex($container->get('guzzle'), $container->get('urlFormatter'));
+        $container['categories'] = function (ContainerInterface $container): Categories {
+            return new Categories($container->get('guzzle'), $container->get('urlFormatter'));
+        };
+
+        $container['posts'] = function (ContainerInterface $container): Posts {
+            return new Posts($container->get('guzzle'), $container->get('urlFormatter'));
         };
 
         $container['categorySlugMapper'] = function (ContainerInterface $container): Slug {
@@ -53,13 +59,14 @@ class App
 
         $app->add(function (RequestInterface $req, ResponseInterface $res, callable $next): ResponseInterface {
             $response = $next($req, $res);
-            return $response
-                ->withHeader('Access-Control-Allow-Origin', 'http://localhost:8000')
+            return $response->withHeader('Access-Control-Allow-Origin', 'http://localhost:8000')
                 ->withHeader('Access-Control-Allow-Headers', 'X-Requested-With, Content-Type, Accept, Origin, Authorization')
                 ->withHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, PATCH, OPTIONS');
         });
 
         $app->get('/', Website::class);
+        $app->get('/posts', \ElliotJReed\Actions\Posts::class);
+        $app->get('/categories', \ElliotJReed\Actions\Categories::class);
 
         $this->app = $app;
     }
