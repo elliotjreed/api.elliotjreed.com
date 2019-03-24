@@ -17,7 +17,7 @@ services:
       - "traefik.enable=true"
       - "traefik.frontend.rule=Host:api.elliotjreed.com"
       - "traefik.protocol=https"
-      - "traefik.port=443"
+      - "traefik.port=5000"
 
 networks:
   elliotjreed:
