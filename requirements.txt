@@ -1,0 +1,4 @@
+sanic
+PyGithub
+cachetools
+python-dotenv
