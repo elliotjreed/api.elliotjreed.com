@@ -1,6 +1,6 @@
 FROM python:alpine
 
-RUN mkdir /srv
+RUN mkdir /usr/src/app
 
 WORKDIR /usr/src/app
 
@@ -12,11 +12,11 @@ COPY ./posts.py /usr/src/app/posts.py
 COPY ./settings.py /usr/src/app/settings.py
 COPY ./requirements.txt /usr/src/app/requirements.txt
 
-RUN pip install --no-cache-dir -r requirements.txt
-
-python -m compileall /usr/src/app
-
-rm -f /usr/src/app/requirements.txt
+RUN apk add --update gcc musl-dev --virtual build-dependencies && \
+    pip install --no-cache-dir -r requirements.txt && \
+    python -m compileall /usr/src/app && \
+    rm -rf /usr/src/app/requirements.txt /var/cache/apk/* /tmp/* && \
+    apk del build-dependencies
 
 EXPOSE 5000
 
