@@ -15,12 +15,12 @@ github_client = Github()
 
 
 @app.route("/", methods=["GET", "OPTIONS"])
-async def posts_list(request):
+async def posts_by_category(request):
     return json(posts(github_client))
 
 
 @app.route("/all", methods=["GET", "OPTIONS"])
-async def posts_list(request):
+async def all_posts(request):
     return json(all_posts(github_client))
 
 
@@ -30,14 +30,14 @@ async def categories_list(request):
 
 
 @app.route("/posts/<category:[A-z]+>", methods=["GET", "OPTIONS"])
-async def category_posts_list(request, category):
+async def posts_in_category(request, category):
     return json(posts(github_client, category))
 
 
 @app.route("/post/<category:[A-z]+>/<link:string>", methods=["GET", "OPTIONS"])
-async def post_html(request, category, link):
+async def post_as_html(request, category, link):
     return raw(post(github_client, category.title(), link), headers={"Content-Type": "text/markdown; charset=UTF-8"})
 
 
 if __name__ == "__main__":
-    app.run(host="0.0.0.0", port=5000, debug=True, access_log=True)
+    app.run(host="0.0.0.0", port=5000, workers=2, debug=False, access_log=False)
