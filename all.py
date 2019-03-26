@@ -14,6 +14,5 @@ def all_posts(github_client):
             contents.extend(repo.get_file_contents(file_content.path))
         else:
             file_path = file_content.path
-
             posts_structure.append(file_path)
     return posts_structure

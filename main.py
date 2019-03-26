@@ -1,11 +1,8 @@
 from sanic import Sanic
 from sanic.response import json
 from sanic.response import raw
-from sanic_cors import CORS, cross_origin
+from sanic_cors import CORS
 from github import Github
-
-from settings import github_access_token, github_client_id, github_client_secret
-
 from all import all_posts
 from categories import categories
 from post import post
@@ -14,7 +11,7 @@ from posts import posts
 app = Sanic("api.elliotjreed.com")
 CORS(app)
 
-github_client = Github(None, None, None, "https://api.github.com", 15, github_client_id, github_client_secret)
+github_client = Github()
 
 
 @app.route("/", methods=["GET", "OPTIONS"])

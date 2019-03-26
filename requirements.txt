@@ -1,5 +1,4 @@
 sanic
 PyGithub
 cachetools
-python-dotenv
 sanic-cors

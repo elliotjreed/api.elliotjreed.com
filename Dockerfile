@@ -9,7 +9,6 @@ COPY ./all.py /usr/src/app/all.py
 COPY ./categories.py /usr/src/app/categories.py
 COPY ./post.py /usr/src/app/post.py
 COPY ./posts.py /usr/src/app/posts.py
-COPY ./settings.py /usr/src/app/settings.py
 COPY ./requirements.txt /usr/src/app/requirements.txt
 
 RUN apk add --update alpine-sdk --virtual build-dependencies && \
