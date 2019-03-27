@@ -13,9 +13,8 @@ charset = utf-8
 [*.py]
 max_line_length = 119
 
-[*.json]
+[*.{ts,tsx,json,js,yml,html,twig}]
 indent_size = 2
-insert_final_newline = false
 
-[*.yml]
-indent_size = 2
+[*.json]
+insert_final_newline = false
