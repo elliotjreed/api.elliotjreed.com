@@ -10,6 +10,8 @@ def categories(github_client):
     contents = repo.get_file_contents('')
     while len(contents) > 0:
         file_content = contents.pop(0)
+
         if file_content.type == 'dir':
             categories_list.append(file_content.path)
+
     return categories_list

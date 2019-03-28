@@ -20,7 +20,7 @@ async def posts_by_category(request):
 
 
 @app.route("/all", methods=["GET", "OPTIONS"])
-async def every_posts(request):
+async def every_post(request):
     return json(all_posts(github_client))
 
 
@@ -40,4 +40,4 @@ async def post_as_html(request, category, link):
 
 
 if __name__ == "__main__":
-    app.run(host="0.0.0.0", port=5000)
+    app.run(host="0.0.0.0", port=5000, workers=1, debug=False, access_log=False)

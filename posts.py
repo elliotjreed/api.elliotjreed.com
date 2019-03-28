@@ -13,7 +13,8 @@ def posts(github_client, category=''):
         file_content = contents.pop(0)
         if file_content.type == 'dir':
             contents.extend(repo.get_file_contents(file_content.path))
-        else:
+
+        if file_content.path.endswith('.md'):
             file_path = file_content.path.split('/')
             category = file_path[0]
 
