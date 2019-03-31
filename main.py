@@ -26,7 +26,7 @@ async def every_post(request):
 
 
 @app.route("/all-full", methods=["GET", "OPTIONS"])
-async def every_post(request):
+async def every_post_full(request):
     return json(all_full(github_client))
 
 
