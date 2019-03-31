@@ -4,6 +4,7 @@ from sanic.response import raw
 from sanic_cors import CORS
 from github import Github
 from all import all_posts
+from all_full import all_full
 from categories import categories
 from post import post
 from posts import posts
@@ -22,6 +23,11 @@ async def posts_by_category(request):
 @app.route("/all", methods=["GET", "OPTIONS"])
 async def every_post(request):
     return json(all_posts(github_client))
+
+
+@app.route("/all-full", methods=["GET", "OPTIONS"])
+async def every_post(request):
+    return json(all_full(github_client))
 
 
 @app.route("/categories", methods=["GET", "OPTIONS"])
