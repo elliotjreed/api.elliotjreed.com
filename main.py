@@ -31,7 +31,7 @@ async def every_post_full(request):
 
 
 @app.route("/all-full/<category:[A-z]+>", methods=["GET", "OPTIONS"])
-async def every_post_full(request, category=''):
+async def every_post_full_by_category(request, category=''):
     return json(all_full(github_client, category))
 
 
