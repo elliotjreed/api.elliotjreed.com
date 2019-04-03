@@ -30,6 +30,11 @@ async def every_post_full(request):
     return json(all_full(github_client))
 
 
+@app.route("/all-full/<category:[A-z]+>", methods=["GET", "OPTIONS"])
+async def every_post_full(request, category=''):
+    return json(all_full(github_client, category))
+
+
 @app.route("/categories", methods=["GET", "OPTIONS"])
 async def categories_list(request):
     return json(categories(github_client))
@@ -46,4 +51,4 @@ async def post_as_html(request, category, link):
 
 
 if __name__ == "__main__":
-    app.run(host="0.0.0.0", port=5000, workers=1, debug=False, access_log=False)
+    app.run(host="0.0.0.0", port=5000, workers=2, debug=False, access_log=False)

@@ -4,10 +4,11 @@ cache = TTLCache(maxsize=500, ttl=3600)
 
 
 @cached(cache)
-def all_full(github_client):
+def all_full(github_client, category=''):
+    category = category.title()
     posts_structure = {}
     repo = github_client.get_repo('elliotjreed/content.elliotjreed.com')
-    contents = repo.get_file_contents('')
+    contents = repo.get_file_contents(category)
     while len(contents) > 0:
         file_content = contents.pop(0)
         file_path = file_content.path

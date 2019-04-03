@@ -6,6 +6,7 @@ WORKDIR /usr/src/app
 
 COPY ./main.py /usr/src/app/main.py
 COPY ./all.py /usr/src/app/all.py
+COPY ./all_full.py /usr/src/app/all_full.py
 COPY ./categories.py /usr/src/app/categories.py
 COPY ./post.py /usr/src/app/post.py
 COPY ./posts.py /usr/src/app/posts.py
