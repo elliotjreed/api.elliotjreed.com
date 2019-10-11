@@ -1,4 +1,12 @@
-/.env
-/venv
-/.idea
-/__pycache__
+/.env.local
+/.env.local.php
+/.env.*.local
+/public/bundles/
+/var/
+/vendor/
+
+.phpunit
+.phpunit.result.cache
+/phpunit.xml
+
+/.web-server-pid

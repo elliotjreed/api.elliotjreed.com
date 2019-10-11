@@ -1,4 +1,0 @@
-sanic
-PyGithub
-cachetools
-sanic-cors
