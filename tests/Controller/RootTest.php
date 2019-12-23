@@ -15,10 +15,8 @@ final class RootTest extends WebTestCase
 
         $response = $client->getResponse();
 
-        echo $response->getContent();
-//
-//        $this->assertJsonStringEqualsJsonString('{}', $response->getContent());
-//        $this->assertEquals(200, $response->getStatusCode());
+        $this->assertJsonStringEqualsJsonString('{}', $response->getContent());
+        $this->assertEquals(200, $response->getStatusCode());
     }
 
     public function testItDisallowsPost(): void
