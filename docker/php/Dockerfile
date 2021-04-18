@@ -25,7 +25,6 @@ COPY --chown=www-data:www-data ./composer.json /var/www/html/composer.json
 COPY --chown=www-data:www-data ./config /var/www/html/config
 COPY --chown=www-data:www-data ./public /var/www/html/public
 COPY --chown=www-data:www-data ./src /var/www/html/src
-COPY --chown=www-data:www-data ./templates /var/www/html/templates
 COPY --chown=www-data:www-data ./vendor /var/www/html/vendor
 COPY --chown=www-data:www-data ./bin/console /var/www/html/bin/console
 
