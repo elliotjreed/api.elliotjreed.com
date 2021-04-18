@@ -10,6 +10,7 @@ use App\Tests\Double\Github\Client;
 use App\Tests\Double\Github\Contents;
 use App\Tests\Double\Github\Repo;
 use PHPUnit\Framework\TestCase;
+use Symfony\Component\Cache\Adapter\ArrayAdapter;
 
 final class BlogPostTest extends TestCase
 {
@@ -19,7 +20,7 @@ final class BlogPostTest extends TestCase
         $contents->throwException = true;
         $githubApiClient = new Client(new Repo($contents));
 
-        $schema = new BlogPost($githubApiClient);
+        $schema = new BlogPost($githubApiClient, new ArrayAdapter());
 
         $this->expectException(BlogPostNotFound::class);
         $this->expectExceptionMessage('post-link');
@@ -33,7 +34,7 @@ final class BlogPostTest extends TestCase
         $contents->fileContents = "# A Test Post\nWith some test content";
         $githubApiClient = new Client(new Repo($contents));
 
-        $schema = new BlogPost($githubApiClient);
+        $schema = new BlogPost($githubApiClient, new ArrayAdapter());
 
         $expected = [
             '@context' => 'https://schema.org',

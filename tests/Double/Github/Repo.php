@@ -6,8 +6,11 @@ namespace App\Tests\Double\Github;
 
 final class Repo extends \Github\Api\Repo
 {
-    public function __construct(private Contents $contents)
+    private Contents $contents;
+
+    public function __construct(Contents $contents)
     {
+        $this->contents = $contents;
     }
 
     public function contents(): Contents

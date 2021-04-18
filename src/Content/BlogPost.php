@@ -8,6 +8,7 @@ use App\Exception\BlogPostNotFound;
 use DateTime;
 use Github\Api\Repo;
 use Github\Client;
+use Psr\Cache\CacheItemPoolInterface;
 use Psr\Http\Client\ClientExceptionInterface;
 use Spatie\SchemaOrg\BlogPosting;
 use Spatie\SchemaOrg\Organization;
@@ -18,8 +19,9 @@ class BlogPost
 {
     protected Repo $githubApi;
 
-    public function __construct(Client $githubClient)
+    public function __construct(Client $githubClient, CacheItemPoolInterface $cachePool)
     {
+        $githubClient->addCache($cachePool);
         $this->githubApi = $githubClient->api('repo');
     }
 
