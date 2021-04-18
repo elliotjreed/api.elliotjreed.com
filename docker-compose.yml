@@ -1,24 +1,34 @@
 version: "3.6"
 
 services:
-  api-elliotjreed:
-    image: elliotjreed/api.elliotjreed.com
-    container_name: api-elliotjreed
+  elliotjreed-api-php:
+    image: elliotjreed/elliotjreed-api-php
+    container_name: elliotjreed-api-php
     restart: always
     networks:
-      - elliotjreed
+      - elliotjreed-api
+    volumes:
+      - ./.env.local:/var/www/html/.env
+
+  elliotjreed-api-nginx:
+    image: elliotjreed/elliotjreed-api-nginx
+    container_name: elliotjreed-api-nginx
+    restart: always
+    networks:
+      - elliotjreed-api
       - web
-    ports:
-      - "5000"
+    depends_on:
+      - elliotjreed-api-php
     labels:
       - "traefik.docker.network=web"
       - "traefik.enable=true"
       - "traefik.frontend.rule=Host:api.elliotjreed.com"
-      - "traefik.protocol=http"
-      - "traefik.port=5000"
+      - "traefik.protocol=h2c"
+      - "traefik.port=96"
 
 networks:
-  elliotjreed:
-    name: elliotjreed
   web:
     external: true
+  elliotjreed-api:
+    name: elliotjreed-api
+
