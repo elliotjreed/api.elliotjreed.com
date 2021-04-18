@@ -14,6 +14,8 @@ services:
     image: elliotjreed/elliotjreed-api-nginx
     container_name: elliotjreed-api-nginx
     restart: always
+    volumes:
+      - ./.env.local:/var/www/html/.env.local:ro
     networks:
       - elliotjreed-api
       - web
