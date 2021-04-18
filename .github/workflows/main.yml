@@ -35,7 +35,7 @@ jobs:
         run: php vendor/bin/phpcs -q --report=checkstyle --standard=phpcs.xml.dist --runtime-set ignore_warnings_on_exit true | cs2pr --graceful-warning
 
       - name: Install Composer production dependencies
-        run: mv -f .env.build .env && composer install --no-interaction --classmap-authoritative --no-progress --no-dev
+        run: composer install --no-interaction --classmap-authoritative --no-progress --no-dev
 
       - name: Set up QEMU
         uses: docker/setup-qemu-action@v1
