@@ -2,7 +2,7 @@ version: "3.6"
 
 services:
   elliotjreed-api-php:
-    image: elliotjreed/elliotjreed-api-php:feature-php
+    image: elliotjreed/elliotjreed-api-php:latest
     container_name: elliotjreed-api-php
     restart: always
     networks:
@@ -11,7 +11,7 @@ services:
       - ./.env.local:/var/www/html/.env
 
   elliotjreed-api-nginx:
-    image: elliotjreed/elliotjreed-api-nginx:feature-php
+    image: elliotjreed/elliotjreed-api-nginx:latest
     container_name: elliotjreed-api-nginx
     restart: always
     volumes:
