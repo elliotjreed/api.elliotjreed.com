@@ -20,6 +20,7 @@ final class ElliotReedTest extends TestCase
             'givenName' => 'Elliot',
             'additionalName' => 'John',
             'familyName' => 'Reed',
+            'alternateName' => 'Elliot Reed',
             'address' => [
                 '@type' => 'PostalAddress',
                 'addressLocality' => 'Nottingham',
@@ -57,13 +58,13 @@ final class ElliotReedTest extends TestCase
                     ],
                 ],
             ],
-            'description' => 'Software developer based in Nottingham, United Kingdom.',
+            'description' => 'Technical Lead in software development based in Nottingham, United Kingdom.',
             'gender' => [
                 '@type' => 'GenderType',
                 'name' => 'male'
             ],
             'honorificSuffix' => 'BA (Hons.)',
-            'jobTitle' => 'Software Developer',
+            'jobTitle' => 'Technical Lead',
             'image' => [
                 '@type' => 'ImageObject',
                 'url' => 'https://res.cloudinary.com/elliotjreed/image/upload/f_auto,q_auto/v1553434444/elliotjreed.jpg'

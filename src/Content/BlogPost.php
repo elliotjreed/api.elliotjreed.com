@@ -58,10 +58,10 @@ class BlogPost
             ->mainEntityOfPage($websiteUrl)
             ->inLanguage('en-GB')
             ->copyrightHolder($this->person())
-            ->publisher((new Organization())->name('Elliot J. Reed')->logo(Schema::imageObject()->url('https://res.cloudinary.com/elliotjreed/image/upload/f_auto,q_auto/v1553434444/elliotjreed.jpg')))
+            ->publisher((new Organization())->name('Elliot J. Reed')->logo(Schema::imageObject()->url('https://res.cloudinary.com/elliotjreed/image/upload/f_auto,q_auto/v1553434444/blog/ejr-rectangle-logo.png')))
             ->headline(\substr(\strtok($content, "\n"), 2))
             ->license('MIT')
-            ->image(Schema::imageObject()->url('https://res.cloudinary.com/elliotjreed/image/upload/f_auto,q_auto/v1553434444/blog.png'))
+            ->image(Schema::imageObject()->url('https://res.cloudinary.com/elliotjreed/image/upload/f_auto,q_auto/v1553434444/blog/ejr-rectangle-logo.png'))
             ->sameAs('https://github.com/elliotjreed/elliotjreed/blob/master/blog/' . \rawurlencode($dateString . ' ' . \str_replace('-', ' ', $link)) . '.md');
     }
 
