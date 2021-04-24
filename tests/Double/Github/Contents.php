@@ -9,7 +9,7 @@ use Github\Exception\InvalidArgumentException;
 final class Contents extends \Github\Api\Repository\Contents
 {
     public array $repositoryContents = [];
-    public string $fileContents = '';
+    public string $fileContents = "# A Test Post\nWith some test content";
     public bool $throwException = false;
 
     public function __construct()

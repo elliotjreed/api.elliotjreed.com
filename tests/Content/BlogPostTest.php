@@ -31,7 +31,6 @@ final class BlogPostTest extends TestCase
     public function testItRendersSchemaForDirectLink(): void
     {
         $contents = new Contents();
-        $contents->fileContents = "# A Test Post\nWith some test content";
         $githubApiClient = new Client(new Repo($contents));
 
         $schema = new BlogPost($githubApiClient, new ArrayAdapter());

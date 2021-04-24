@@ -29,10 +29,10 @@ jobs:
         run: composer install --no-interaction --classmap-authoritative --no-progress
 
       - name: Run unit tests
-        run: php vendor/bin/simple-phpunit -c phpunit.xml.dist
+        run: composer run-script phpunit:ci
 
       - name: Run PHP Code Sniffer
-        run: php vendor/bin/phpcs -q --report=checkstyle --standard=phpcs.xml.dist --runtime-set ignore_warnings_on_exit true | cs2pr --graceful-warning
+        run: composer run-script phpcs:ci | cs2pr --graceful-warning
 
       - name: Install Composer production dependencies
         run: APP_ENV=prod composer install --no-interaction --classmap-authoritative --no-progress --no-dev

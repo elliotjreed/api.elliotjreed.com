@@ -6,6 +6,7 @@ namespace App\Tests\Double\Github;
 
 final class Repo extends \Github\Api\Repo
 {
+    public bool $throwException = false;
     private Contents $contents;
 
     public function __construct(Contents $contents)
@@ -15,6 +16,10 @@ final class Repo extends \Github\Api\Repo
 
     public function contents(): Contents
     {
+        if ($this->throwException) {
+            throw new ApiException();
+        }
+
         return $this->contents;
     }
 }

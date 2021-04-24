@@ -24,7 +24,6 @@ final class BlogPostsTest extends TestCase
                 'path' => 'blog/2020-01-01 post link.md'
             ]
         ];
-        $contents->fileContents = "# A Test Post\nWith some test content";
 
         $githubApiClient = new Client(new Repo($contents));
         $schema = new BlogPosts($githubApiClient, new ArrayAdapter());
@@ -77,5 +76,19 @@ final class BlogPostsTest extends TestCase
         ];
 
         $this->assertSame($expected, $schema->all()->toArray());
+    }
+
+    public function testItIgnoresGithubApiException(): void
+    {
+        $repo = new Repo(new Contents());
+        $repo->throwException = true;
+
+        $schema = new BlogPosts(new Client($repo), new ArrayAdapter());
+
+        $this->assertSame([
+            '@context' => 'https://schema.org',
+            '@type' => 'Blog',
+            'blogPosts' => []
+        ], $schema->all()->toArray());
     }
 }

@@ -7,6 +7,8 @@
     "php": ">=8.0",
     "ext-ctype": "*",
     "ext-iconv": "*",
+    "ext-zend-opcache": "*",
+    "elliotjreed/disposable-emails-filter": "^3.1",
     "knplabs/github-api": "^3.1",
     "nyholm/psr7": "^1.4",
     "spatie/schema-org": "^3.3",
@@ -15,6 +17,8 @@
     "symfony/flex": "^1.12",
     "symfony/framework-bundle": "5.2.*",
     "symfony/http-client": "5.2.*",
+    "symfony/mailer": "5.2.*",
+    "symfony/sendgrid-mailer": "5.2.*",
     "symfony/twig-bundle": "5.2.*",
     "symfony/yaml": "5.2.*",
     "twig/extra-bundle": "^3.3",
@@ -67,9 +71,12 @@
       "@phpcs"
     ],
     "phpunit": "vendor/bin/simple-phpunit -c phpunit.xml.dist",
-    "debug": "vendor/bin/simple-phpunit --stop-on-failure -c phpunit.xml.dist",
-    "coverage": "vendor/bin/simple-phpunit -c phpunit.xml.dist --coverage-html ./coverage --coverage-text",
-    "phpcs": "vendor/bin/phpcs --standard=phpcs.xml.dist"
+    "phpunit:debug": "vendor/bin/simple-phpunit --stop-on-failure -c phpunit.xml.dist",
+    "phpunit:coverage": "vendor/bin/simple-phpunit -c phpunit.xml.dist --coverage-html ./coverage --coverage-text",
+    "phpunit:ci": "vendor/bin/simple-phpunit -c phpunit.xml.dist --coverage-text=coverage.txt",
+    "phpcs": "vendor/bin/phpcs --standard=phpcs.xml.dist",
+    "phpcs:ci": "vendor/bin/phpcs --standard=phpcs.xml.dist --report=checkstyle --runtime-set ignore_warnings_on_exit true",
+    "phpcs:fix": "vendor/bin/phpcbf --standard=phpcs.xml.dist"
   },
   "conflict": {
     "symfony/symfony": "*"

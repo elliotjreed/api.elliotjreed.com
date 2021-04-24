@@ -19,18 +19,6 @@ final class BlogPosts extends BlogPost
         return Schema::blog()->blogPosts($posts);
     }
 
-    public function markdown(): string
-    {
-        $contentsApi = $this->githubApi->contents();
-        $directoryContents = $contentsApi->show('elliotjreed', 'elliotjreed', 'blog');
-        $posts = '';
-        foreach ($directoryContents as $directory) {
-            $posts .= '- [' . $directory['name'] . '](' . $directory['path'] . ')' . PHP_EOL;
-        }
-
-        return $posts;
-    }
-
     private function getDirectoryContents(): array
     {
         $posts = [];
