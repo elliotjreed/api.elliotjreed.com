@@ -46,7 +46,7 @@ class BlogPost
 
     public function buildPostSummary(string $content, string $link, string $dateString): BlogPosting
     {
-        $date = (new DateTimeImmutable($dateString))->setTime(19, 0)->setTimezone(new DateTimeZone('Europe/London'));
+        $date = (new DateTimeImmutable($dateString))->setTimezone(new DateTimeZone('Europe/London'))->setTime(19, 0);
         $websiteUrl = 'https://www.elliotjreed.com/blog/' . $dateString . '/' . \strtolower(\str_replace(' ', '-', $link));
         return Schema::blogPosting()
             ->name(\ucwords(\str_replace('-', ' ', $link)))
