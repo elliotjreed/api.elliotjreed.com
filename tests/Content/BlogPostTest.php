@@ -39,9 +39,9 @@ final class BlogPostTest extends TestCase
             '@context' => 'https://schema.org',
             '@type' => 'BlogPosting',
             'name' => 'Post Link',
-            'dateCreated' => '2020-01-01T00:00:00+00:00',
-            'datePublished' => '2020-01-01T00:00:00+00:00',
-            'dateModified' => '2020-01-01T00:00:00+00:00',
+            'dateCreated' => '2020-01-01T19:00:00+00:00',
+            'datePublished' => '2020-01-01T19:00:00+00:00',
+            'dateModified' => '2020-01-01T19:00:00+00:00',
             'wordCount' => 7,
             'author' => [
                 '@type' => 'Person',

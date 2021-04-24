@@ -37,9 +37,9 @@ final class PostTest extends WebTestCase
                   "givenName": "Elliot",
                   "name": "Elliot J. Reed"
               },
-              "dateCreated": "1970-01-01T00:00:00+01:00",
-              "dateModified": "1970-01-01T00:00:00+01:00",
-              "datePublished": "1970-01-01T00:00:00+01:00",
+              "dateCreated": "1970-01-01T19:00:00+01:00",
+              "dateModified": "1970-01-01T19:00:00+01:00",
+              "datePublished": "1970-01-01T19:00:00+01:00",
               "headline": "A Test Post",
               "image": {
                   "@type": "ImageObject",
