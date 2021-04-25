@@ -15,13 +15,10 @@ use Symfony\Component\HttpKernel\Event\ExceptionEvent;
 use Symfony\Component\HttpKernel\Exception\HttpExceptionInterface;
 use Throwable;
 
-class ExceptionListener
+final class ExceptionListener
 {
-    private LoggerInterface $logger;
-
-    public function __construct(LoggerInterface $logger)
+    public function __construct(private LoggerInterface $logger)
     {
-        $this->logger = $logger;
     }
 
     public function onKernelException(ExceptionEvent $event): void
@@ -36,8 +33,7 @@ class ExceptionListener
     private function createApiResponse(Throwable $exception, Request $request): JsonResponse
     {
         $statusCode = Response::HTTP_INTERNAL_SERVER_ERROR;
-//        $errors = ['An unexpected error occurred.'];
-        $errors = [$exception->getMessage()];
+        $errors = ['An unexpected error occurred.'];
         $logLevel = LogLevel::WARNING;
 
         if ($exception instanceof HttpExceptionInterface) {
