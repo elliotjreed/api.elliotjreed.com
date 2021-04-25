@@ -17,4 +17,4 @@ monolog:
       channels: [ "!event", "!doctrine" ]
     syslog_handler:
       type: syslog
-      level: error
+      level: warning
