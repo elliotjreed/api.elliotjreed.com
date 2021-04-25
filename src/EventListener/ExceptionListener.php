@@ -36,7 +36,8 @@ class ExceptionListener
     private function createApiResponse(Throwable $exception, Request $request): JsonResponse
     {
         $statusCode = Response::HTTP_INTERNAL_SERVER_ERROR;
-        $errors = ['An unexpected error occurred.'];
+//        $errors = ['An unexpected error occurred.'];
+        $errors = [$exception->getMessage()];
         $logLevel = LogLevel::WARNING;
 
         if ($exception instanceof HttpExceptionInterface) {
