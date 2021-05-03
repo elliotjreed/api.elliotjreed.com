@@ -1,5 +1,7 @@
 {
   "type": "project",
+  "name": "elliotjreed/api.elliotjreed.com",
+  "description": "The code for https://api.elliotjreed.com.",
   "license": "proprietary",
   "minimum-stability": "dev",
   "prefer-stable": true,
@@ -9,7 +11,7 @@
     "ext-iconv": "*",
     "ext-zend-opcache": "*",
     "elliotjreed/disposable-emails-filter": "^3.1",
-    "knplabs/github-api": "^3.1",
+    "knplabs/github-api": "^3.2",
     "nelmio/cors-bundle": "^2.1",
     "nyholm/psr7": "^1.4",
     "spatie/schema-org": "^3.3",

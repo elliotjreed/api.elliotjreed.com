@@ -59,12 +59,10 @@ final class ElliotReedTest extends TestCase
                 ],
             ],
             'description' => 'Technical Lead in software development based in Nottingham, United Kingdom.',
-            'gender' => [
-                '@type' => 'GenderType',
-                'name' => 'male'
-            ],
+            'gender' => 'https://schema.org/Male',
             'honorificSuffix' => 'BA (Hons.)',
             'jobTitle' => 'Technical Lead',
+            'knowsLanguage' => 'en-GB',
             'image' => [
                 '@type' => 'ImageObject',
                 'url' => 'https://res.cloudinary.com/elliotjreed/image/upload/f_auto,q_auto/v1553434444/elliotjreed.jpg'

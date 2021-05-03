@@ -39,12 +39,12 @@ class BlogPost
         throw new BlogPostNotFound($link);
     }
 
-    public function buildPost(string $content, string $link, string $dateString): BlogPosting
+    private function buildPost(string $content, string $link, string $dateString): BlogPosting
     {
         return $this->buildPostSummary($content, $link, $dateString)->articleBody($content);
     }
 
-    public function buildPostSummary(string $content, string $link, string $dateString): BlogPosting
+    protected function buildPostSummary(string $content, string $link, string $dateString): BlogPosting
     {
         $date = (new DateTimeImmutable($dateString))->setTimezone(new DateTimeZone('Europe/London'))->setTime(19, 0);
         $websiteUrl = 'https://www.elliotjreed.com/blog/' . $dateString . '/' . \strtolower(\str_replace(' ', '-', $link));
