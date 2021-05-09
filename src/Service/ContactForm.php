@@ -41,7 +41,7 @@ class ContactForm
         $this->mailer->send((new Email())
             ->from('hello@elliotjreed.com')
             ->to('website-contact-form@elliotjreed.com')
-            ->subject('Test Email')
+            ->subject('Email from www.elliotjreed.com')
             ->html($emailBody));
     }
 }

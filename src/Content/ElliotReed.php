@@ -47,7 +47,6 @@ final class ElliotReed
             ->image(Schema::imageObject()->url('https://res.cloudinary.com/elliotjreed/image/upload/f_auto,q_auto/v1553434444/elliotjreed.jpg'))
             ->nationality(Schema::country()->name('United Kingdom'))
             ->sameAs(['https://www.elliotjreed.com', 'https://twitter.com/elliotjreed', 'https://www.linkedin.com/in/elliotjreed', 'https://github.com/elliotjreed'])
-            ->telephone('+447708309156')
             ->url('https://www.elliotjreed.com')
             ->height(Schema::quantitativeValue()->unitCode('cm')->value(183));
     }

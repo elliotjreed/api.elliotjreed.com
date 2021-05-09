@@ -82,7 +82,6 @@ final class PersonTest extends WebTestCase
               "https://www.linkedin.com/in/elliotjreed",
               "https://github.com/elliotjreed"
             ],
-            "telephone": "+447708309156",
             "url": "https://www.elliotjreed.com",
             "height": {
               "@type": "QuantitativeValue",
