@@ -75,16 +75,12 @@
       "@phpunit",
       "@phpcs"
     ],
-    "ci": [
-      "@phpunit:ci",
-      "@phpcs:github-actions"
-    ],
     "phpunit": "vendor/bin/simple-phpunit -c phpunit.xml.dist",
     "phpunit:debug": "vendor/bin/simple-phpunit --stop-on-failure -c phpunit.xml.dist",
     "phpunit:coverage": "vendor/bin/simple-phpunit -c phpunit.xml.dist --coverage-html ./coverage --coverage-text",
     "phpunit:ci": "vendor/bin/simple-phpunit -c phpunit.xml.dist --coverage-text=coverage.txt",
     "phpcs": "vendor/bin/php-cs-fixer fix --allow-risky=yes && vendor/bin/phpcs --standard=phpcs.xml.dist",
-    "phpcs:github-actions": "vendor/bin/php-cs-fixer fix --dry-run --allow-risky=yes --using-cache=no --format=checkstyle | cs2pr --graceful-warnings"
+    "phpcs:github-actions": "vendor/bin/php-cs-fixer fix --dry-run --allow-risky=yes --using-cache=no --format=checkstyle"
   },
   "conflict": {
     "symfony/symfony": "*"
