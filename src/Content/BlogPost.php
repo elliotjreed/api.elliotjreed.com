@@ -32,8 +32,8 @@ class BlogPost
             $blogPostGitHubPath = 'blog/' . $dateString . ' ' . \str_replace('-', ' ', $link) . '.md';
             $githubResponse = $this->githubApi->contents()->download('elliotjreed', 'elliotjreed', $blogPostGitHubPath);
 
-             return $this->buildPost($githubResponse, $link, $dateString);
-        } catch (ClientExceptionInterface $exception) { /** phpcs:ignore Generic.CodeAnalysis.EmptyStatement.DetectedCatch */
+            return $this->buildPost($githubResponse, $link, $dateString);
+        } catch (ClientExceptionInterface $exception) { /* phpcs:ignore Generic.CodeAnalysis.EmptyStatement.DetectedCatch */
         }
 
         throw new BlogPostNotFound($link);
@@ -48,6 +48,7 @@ class BlogPost
     {
         $date = (new DateTimeImmutable($dateString))->setTimezone(new DateTimeZone('Europe/London'))->setTime(19, 0);
         $websiteUrl = 'https://www.elliotjreed.com/blog/' . $dateString . '/' . \strtolower(\str_replace(' ', '-', $link));
+
         return Schema::blogPosting()
             ->name(\ucwords(\str_replace('-', ' ', $link)))
             ->dateCreated($date)

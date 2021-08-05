@@ -25,14 +25,14 @@ final class BlogPosts extends BlogPost
         try {
             $files = $this->githubApi->contents()->show('elliotjreed', 'elliotjreed', 'blog');
             foreach ($files as $file) {
-                if ($file['type'] === 'file') {
+                if ('file' === $file['type']) {
                     $response = $this->githubApi->contents()->download('elliotjreed', 'elliotjreed', $file['path']);
                     $link = \substr(\substr($file['name'], 0, -3), 11);
                     $dateString = \substr($file['name'], 0, 10);
                     $posts[] = $this->buildPostSummary($response, $link, $dateString);
                 }
             }
-        } catch (ClientExceptionInterface $exception) { /** phpcs:ignore Generic.CodeAnalysis.EmptyStatement.DetectedCatch */
+        } catch (ClientExceptionInterface $exception) { /* phpcs:ignore Generic.CodeAnalysis.EmptyStatement.DetectedCatch */
         }
 
         return $posts;

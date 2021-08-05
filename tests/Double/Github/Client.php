@@ -15,12 +15,12 @@ final class Client extends \Github\Client
         $this->repo = $repo;
     }
 
-    public function api($name): Repo /** phpcs:ignore Generic.CodeAnalysis.UnusedFunctionParameter */
+    public function api($name): Repo /* phpcs:ignore Generic.CodeAnalysis.UnusedFunctionParameter */
     {
         return $this->repo;
     }
 
-    public function addCache(CacheItemPoolInterface $cachePool, array $config = []): void /** phpcs:ignore Generic.CodeAnalysis.UnusedFunctionParameter */
+    public function addCache(CacheItemPoolInterface $cachePool, array $config = []): void /* phpcs:ignore Generic.CodeAnalysis.UnusedFunctionParameter */
     {
     }
 }

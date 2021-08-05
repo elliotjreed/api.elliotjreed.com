@@ -10,7 +10,7 @@ use PHPUnit\Framework\TestCase;
 
 final class EmailAddressTest extends TestCase
 {
-    public function tearDown(): void
+    protected function tearDown(): void
     {
         \unlink(\sys_get_temp_dir() . '/phpunit-emailaddresstest-disposable-list.txt');
     }

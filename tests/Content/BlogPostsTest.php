@@ -16,7 +16,7 @@ final class BlogPostsTest extends TestCase
     public function testItRendersSchemaForAllPosts(): void
     {
         $contents = new Contents();
-        $contents->repositoryContents  = [
+        $contents->repositoryContents = [
             [
                 'name' => '2020-01-01 post link.md',
                 'download_url' => 'https://github.com/elliotjreed/elliotjreed/blog/2020-01-01%20post%20link.md',

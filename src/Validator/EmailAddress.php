@@ -14,7 +14,7 @@ class EmailAddress extends Validator
 
     public function valid(mixed $emailAddress): bool
     {
-        if (\filter_var($emailAddress, FILTER_VALIDATE_EMAIL) === false || $this->disposableEmailAddress->isDisposable($emailAddress)) {
+        if (false === \filter_var($emailAddress, \FILTER_VALIDATE_EMAIL) || $this->disposableEmailAddress->isDisposable($emailAddress)) {
             $this->errors[] = 'The email address appears to be invalid.';
 
             return false;

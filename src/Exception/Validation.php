@@ -22,7 +22,7 @@ final class Validation extends Exception
         return $this->errors;
     }
 
-    public function setErrors(array $errors): Validation
+    public function setErrors(array $errors): self
     {
         $this->errors = $errors;
 

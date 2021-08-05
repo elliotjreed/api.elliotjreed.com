@@ -16,7 +16,7 @@ class Captcha extends Validator
 
     public function valid(mixed $captchaToken): bool
     {
-        if (!\is_string($captchaToken) || \trim($captchaToken) === '') {
+        if (!\is_string($captchaToken) || '' === \trim($captchaToken)) {
             $this->errors[] = 'The captcha appears to be invalid.';
 
             return false;
@@ -34,9 +34,9 @@ class Captcha extends Validator
                 ]
             ]);
 
-            $decodedResponse = \json_decode($response->getContent(), true, 2, JSON_THROW_ON_ERROR);
+            $decodedResponse = \json_decode($response->getContent(), true, 2, \JSON_THROW_ON_ERROR);
 
-            if ($decodedResponse['success'] !== true) {
+            if (true !== $decodedResponse['success']) {
                 $this->errors[] = 'The captcha appears to be invalid.';
 
                 return false;
