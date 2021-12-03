@@ -38,7 +38,13 @@ final class ContactFormTest extends TestCase
     {
         $mailer = new EmailSpy();
 
-        $contactForm = (new ContactForm($this->nonEmptyFieldValidator, $this->emailAddressValidator, $this->captchaValidator, $this->twigEnvironment, $mailer));
+        $contactForm = (new ContactForm(
+            $this->nonEmptyFieldValidator,
+            $this->emailAddressValidator,
+            $this->captchaValidator,
+            $this->twigEnvironment,
+            $mailer)
+        );
 
         $this->expectException(Validation::class);
 
@@ -56,7 +62,13 @@ final class ContactFormTest extends TestCase
     {
         $mailer = new EmailSpy();
 
-        $contactForm = (new ContactForm($this->nonEmptyFieldValidator, $this->emailAddressValidator, $this->captchaValidator, $this->twigEnvironment, $mailer));
+        $contactForm = (new ContactForm(
+            $this->nonEmptyFieldValidator,
+            $this->emailAddressValidator,
+            $this->captchaValidator,
+            $this->twigEnvironment,
+            $mailer)
+        );
 
         $this->expectException(Validation::class);
 
@@ -74,7 +86,13 @@ final class ContactFormTest extends TestCase
     {
         $mailer = new EmailSpy();
 
-        $contactForm = (new ContactForm($this->nonEmptyFieldValidator, $this->emailAddressValidator, $this->captchaValidator, $this->twigEnvironment, $mailer));
+        $contactForm = (new ContactForm(
+            $this->nonEmptyFieldValidator,
+            $this->emailAddressValidator,
+            $this->captchaValidator,
+            $this->twigEnvironment,
+            $mailer))
+        ;
 
         $this->expectException(Validation::class);
 
@@ -98,7 +116,13 @@ final class ContactFormTest extends TestCase
         $captchaValidator = new Captcha(new MockHttpClient(new MockResponse($failedCaptchaResponse)));
         $mailer = new EmailSpy();
 
-        $contactForm = (new ContactForm($this->nonEmptyFieldValidator, $this->emailAddressValidator, $captchaValidator, $this->twigEnvironment, $mailer));
+        $contactForm = (new ContactForm(
+            $this->nonEmptyFieldValidator,
+            $this->emailAddressValidator,
+            $captchaValidator,
+            $this->twigEnvironment,
+            $mailer)
+        );
 
         $this->expectException(Validation::class);
 
@@ -116,8 +140,13 @@ final class ContactFormTest extends TestCase
     {
         $mailer = new EmailSpy();
 
-        (new ContactForm($this->nonEmptyFieldValidator, $this->emailAddressValidator, $this->captchaValidator, $this->twigEnvironment, $mailer))
-            ->sendEmail('Mr Name', 'email@example.com', 'A Message', 'captcha-token');
+        (new ContactForm(
+            $this->nonEmptyFieldValidator,
+            $this->emailAddressValidator,
+            $this->captchaValidator,
+            $this->twigEnvironment,
+            $mailer)
+        )->sendEmail('Mr Name', 'email@example.com', 'A Message', 'captcha-token');
 
         $this->assertTrue($mailer->called);
     }
