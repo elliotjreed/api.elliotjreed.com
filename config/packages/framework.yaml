@@ -1,8 +1,10 @@
 framework:
   secret: '%env(APP_SECRET)%'
-
-  session:
-    handler_id: null
+  http_method_override: false
 
   php_errors:
     log: true
+
+when@test:
+  framework:
+    test: true
