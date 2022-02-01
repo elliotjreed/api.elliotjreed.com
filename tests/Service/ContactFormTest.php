@@ -43,8 +43,8 @@ final class ContactFormTest extends TestCase
             $this->emailAddressValidator,
             $this->captchaValidator,
             $this->twigEnvironment,
-            $mailer)
-        );
+            $mailer
+        ));
 
         $this->expectException(Validation::class);
 
@@ -67,8 +67,8 @@ final class ContactFormTest extends TestCase
             $this->emailAddressValidator,
             $this->captchaValidator,
             $this->twigEnvironment,
-            $mailer)
-        );
+            $mailer
+        ));
 
         $this->expectException(Validation::class);
 
@@ -91,8 +91,8 @@ final class ContactFormTest extends TestCase
             $this->emailAddressValidator,
             $this->captchaValidator,
             $this->twigEnvironment,
-            $mailer))
-        ;
+            $mailer
+        ));
 
         $this->expectException(Validation::class);
 
@@ -121,8 +121,8 @@ final class ContactFormTest extends TestCase
             $this->emailAddressValidator,
             $captchaValidator,
             $this->twigEnvironment,
-            $mailer)
-        );
+            $mailer
+        ));
 
         $this->expectException(Validation::class);
 
@@ -145,8 +145,8 @@ final class ContactFormTest extends TestCase
             $this->emailAddressValidator,
             $this->captchaValidator,
             $this->twigEnvironment,
-            $mailer)
-        )->sendEmail('Mr Name', 'email@example.com', 'A Message', 'captcha-token');
+            $mailer
+        ))->sendEmail('Mr Name', 'email@example.com', 'A Message', 'captcha-token');
 
         $this->assertTrue($mailer->called);
     }
