@@ -17,7 +17,7 @@ final class Post
     {
         try {
             return new JsonResponse($post->fetch($link, $dateString)->toArray());
-        } catch (BlogPostNotFound $exception) {
+        } catch (BlogPostNotFound) {
             throw new NotFoundHttpException('Blog post not found.');
         }
     }

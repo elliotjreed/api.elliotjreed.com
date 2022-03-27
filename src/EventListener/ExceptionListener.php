@@ -51,7 +51,9 @@ final class ExceptionListener
             $errors = ['Malformed JSON in request body.'];
         }
 
-        $log = \get_class($exception) . ': ' . $exception->getMessage() . '" at ' . $exception->getFile() . ' line ' . $exception->getLine();
+        $log = \get_class($exception) . ': ' . $exception->getMessage() .
+            '" at ' . $exception->getFile() . ' line ' . $exception->getLine();
+
         $this->logger->log($logLevel, $log, [
             'trace' => $exception->getTrace(),
             'request' => \substr($request->getContent(), 0, 2048)

@@ -17,7 +17,8 @@ final class EmailAddressTest extends TestCase
 
     public function testItReturnsFalseWithInvalidEmailAddressErrorMessageWhenEmailAddressIsInvalid(): void
     {
-        $disposableEmailAddressFile = new \SplFileObject(\sys_get_temp_dir() . '/phpunit-emailaddresstest-disposable-list.txt', 'wb+');
+        $filePath = \sys_get_temp_dir() . '/phpunit-emailaddresstest-disposable-list.txt';
+        $disposableEmailAddressFile = new \SplFileObject($filePath, 'wb+');
 
         $validator = new EmailAddress(new Email($disposableEmailAddressFile->getRealPath()));
 
@@ -25,9 +26,10 @@ final class EmailAddressTest extends TestCase
         $this->assertSame(['The email address appears to be invalid.'], $validator->getErrors());
     }
 
-    public function testItReturnsFalseWithInvalidEmailAddressErrorMessageWhenEmailAddressIsDisposableEmailAddress(): void
+    public function testItReturnsFalseWithInvalidEmailAddressMessageWhenEmailAddressIsDisposableEmailAddress(): void
     {
-        $disposableEmailAddressFile = new \SplFileObject(\sys_get_temp_dir() . '/phpunit-emailaddresstest-disposable-list.txt', 'wb+');
+        $filePath = \sys_get_temp_dir() . '/phpunit-emailaddresstest-disposable-list.txt';
+        $disposableEmailAddressFile = new \SplFileObject($filePath, 'wb+');
         $disposableEmailAddressFile->fwrite('example.com');
 
         $validator = new EmailAddress(new Email($disposableEmailAddressFile->getRealPath()));
@@ -38,7 +40,8 @@ final class EmailAddressTest extends TestCase
 
     public function testItReturnsTrueWhenEmailAddressAppearsToBeValid(): void
     {
-        $disposableEmailAddressFile = new \SplFileObject(\sys_get_temp_dir() . '/phpunit-emailaddresstest-disposable-list.txt', 'wb+');
+        $filePath = \sys_get_temp_dir() . '/phpunit-emailaddresstest-disposable-list.txt';
+        $disposableEmailAddressFile = new \SplFileObject($filePath, 'wb+');
         $disposableEmailAddressFile->fwrite('test.com');
 
         $validator = new EmailAddress(new Email($disposableEmailAddressFile->getRealPath()));

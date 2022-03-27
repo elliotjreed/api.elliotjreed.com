@@ -44,9 +44,15 @@ final class ElliotReed
             ->honorificSuffix('BA (Hons.)')
             ->jobTitle('Technical Lead')
             ->knowsLanguage('en-GB')
-            ->image(Schema::imageObject()->url('https://res.cloudinary.com/elliotjreed/image/upload/f_auto,q_auto/v1553434444/elliotjreed.jpg'))
+            ->image(Schema::imageObject()
+                ->url('https://res.cloudinary.com/elliotjreed/image/upload/f_auto,q_auto/v1553434444/elliotjreed.jpg'))
             ->nationality(Schema::country()->name('United Kingdom'))
-            ->sameAs(['https://www.elliotjreed.com', 'https://twitter.com/elliotjreed', 'https://www.linkedin.com/in/elliotjreed', 'https://github.com/elliotjreed'])
+            ->sameAs([
+                'https://www.elliotjreed.com',
+                'https://twitter.com/elliotjreed',
+                'https://www.linkedin.com/in/elliotjreed',
+                'https://github.com/elliotjreed'
+            ])
             ->url('https://www.elliotjreed.com')
             ->height(Schema::quantitativeValue()->unitCode('cm')->value(183));
     }

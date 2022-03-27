@@ -32,7 +32,7 @@ final class BlogPosts extends BlogPost
                     $posts[] = $this->buildPostSummary($response, $link, $dateString);
                 }
             }
-        } catch (ClientExceptionInterface $exception) { /* phpcs:ignore Generic.CodeAnalysis.EmptyStatement.DetectedCatch */
+        } catch (ClientExceptionInterface) { /* phpcs:ignore Generic.CodeAnalysis.EmptyStatement.DetectedCatch */
         }
 
         return $posts;

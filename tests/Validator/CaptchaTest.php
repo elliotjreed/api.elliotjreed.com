@@ -44,7 +44,7 @@ final class CaptchaTest extends TestCase
 
         $this->assertFalse($validator->valid('test-captcha-token'));
         $this->assertSame([
-            'There was a problem verifying the captcha response. Please try reloading the page and try again.'
+            'There was a problem verifying the captcha. Please try reloading the page and try again.'
         ], $validator->getErrors());
     }
 

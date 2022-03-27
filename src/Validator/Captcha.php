@@ -41,8 +41,8 @@ class Captcha extends Validator
 
                 return false;
             }
-        } catch (JsonException | ExceptionInterface $e) {
-            $this->errors[] = 'There was a problem verifying the captcha response. Please try reloading the page and try again.';
+        } catch (JsonException | ExceptionInterface) {
+            $this->errors[] = 'There was a problem verifying the captcha. Please try reloading the page and try again.';
 
             return false;
         }

@@ -14,8 +14,13 @@ use Twig\Environment;
 
 class ContactForm
 {
-    public function __construct(private NonEmptyField $nonEmptyFieldValidator, private EmailAddress $emailAddressValidator, private Captcha $captchaValidator, private Environment $twig, private MailerInterface $mailer)
-    {
+    public function __construct(
+        private NonEmptyField $nonEmptyFieldValidator,
+        private EmailAddress $emailAddressValidator,
+        private Captcha $captchaValidator,
+        private Environment $twig,
+        private MailerInterface $mailer
+    ) {
     }
 
     public function sendEmail(?string $name, ?string $emailAddress, ?string $message, ?string $captchaToken): void
