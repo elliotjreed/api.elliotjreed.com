@@ -62,14 +62,14 @@ final class BlogPostsTest extends TestCase
                     'name' => 'Elliot J. Reed',
                     'logo' => [
                         '@type' => 'ImageObject',
-                        'url' => 'https://res.cloudinary.com/elliotjreed/image/upload/f_auto,q_auto/v1553434444/blog/ejr-rectangle-logo.png'
+                        'url' => 'https://res.cloudinary.com/elliotjreed/image/upload/f_auto,q_auto/v1648588302/og-no-number.png'
                     ],
                 ],
                 'headline' => 'A Test Post',
                 'license' => 'MIT',
                 'image' => [
                     '@type' => 'ImageObject',
-                    'url' => 'https://res.cloudinary.com/elliotjreed/image/upload/f_auto,q_auto/v1553434444/blog/ejr-rectangle-logo.png'
+                    'url' => 'https://res.cloudinary.com/elliotjreed/image/upload/f_auto,q_auto/v1648588302/og-no-number.png'
                 ],
                 'sameAs' => 'https://github.com/elliotjreed/elliotjreed/blob/master/blog/2020-01-01%20post%20link.md'
             ]]

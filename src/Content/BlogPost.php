@@ -47,7 +47,8 @@ class BlogPost
     protected function buildPostSummary(string $content, string $link, string $dateString): BlogPosting
     {
         $date = (new DateTimeImmutable($dateString))->setTimezone(new DateTimeZone('Europe/London'))->setTime(19, 0);
-        $websiteUrl = 'https://www.elliotjreed.com/blog/' . $dateString . '/' . \strtolower(\str_replace(' ', '-', $link));
+        $websiteUrl = 'https://www.elliotjreed.com/blog/' . $dateString . '/'
+            . \strtolower(\str_replace(' ', '-', $link));
 
         return Schema::blogPosting()
             ->name(\ucwords(\str_replace('-', ' ', $link)))
@@ -63,11 +64,11 @@ class BlogPost
             ->publisher((new Organization())
                 ->name('Elliot J. Reed')
                 ->logo(Schema::imageObject()
-                    ->url('https://res.cloudinary.com/elliotjreed/image/upload/f_auto,q_auto/v1553434444/blog/ejr-rectangle-logo.png')))
+                    ->url('https://res.cloudinary.com/elliotjreed/image/upload/f_auto,q_auto/v1648588302/og-no-number.png')))
             ->headline(\substr(\strtok($content, "\n"), 2))
             ->license('MIT')
             ->image(Schema::imageObject()
-                ->url('https://res.cloudinary.com/elliotjreed/image/upload/f_auto,q_auto/v1553434444/blog/ejr-rectangle-logo.png'))
+                ->url('https://res.cloudinary.com/elliotjreed/image/upload/f_auto,q_auto/v1648588302/og-no-number.png'))
             ->sameAs('https://github.com/elliotjreed/elliotjreed/blob/master/blog/' . \rawurlencode($dateString . ' ' . \str_replace('-', ' ', $link)) . '.md');
     }
 

@@ -43,7 +43,7 @@ final class PostTest extends WebTestCase
               "headline": "A Test Post",
               "image": {
                   "@type": "ImageObject",
-                  "url": "https://res.cloudinary.com/elliotjreed/image/upload/f_auto,q_auto/v1553434444/blog/ejr-rectangle-logo.png"
+                  "url": "https://res.cloudinary.com/elliotjreed/image/upload/f_auto,q_auto/v1648588302/og-no-number.png"
               },
               "inLanguage": "en-GB",
               "license": "MIT",
@@ -53,7 +53,7 @@ final class PostTest extends WebTestCase
                   "@type": "Organization",
                   "logo": {
                       "@type": "ImageObject",
-                      "url": "https://res.cloudinary.com/elliotjreed/image/upload/f_auto,q_auto/v1553434444/blog/ejr-rectangle-logo.png"
+                      "url": "https://res.cloudinary.com/elliotjreed/image/upload/f_auto,q_auto/v1648588302/og-no-number.png"
                   },
                   "name": "Elliot J. Reed"
               },
