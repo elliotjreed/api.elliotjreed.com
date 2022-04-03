@@ -69,7 +69,10 @@ class BlogPost
             ->license('MIT')
             ->image(Schema::imageObject()
                 ->url('https://res.cloudinary.com/elliotjreed/image/upload/f_auto,q_auto/v1648588302/og-no-number.png'))
-            ->sameAs('https://github.com/elliotjreed/elliotjreed/blob/master/blog/' . \rawurlencode($dateString . ' ' . \str_replace('-', ' ', $link)) . '.md');
+            ->sameAs(
+                'https://github.com/elliotjreed/elliotjreed/blob/master/blog/' .
+                \rawurlencode($dateString . ' ' . \str_replace('-', ' ', $link)) . '.md'
+            );
     }
 
     private function person(): Person
