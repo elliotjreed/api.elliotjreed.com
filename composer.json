@@ -2,7 +2,7 @@
   "type": "project",
   "name": "elliotjreed/api.elliotjreed.com",
   "description": "The code for https://api.elliotjreed.com.",
-  "license": "proprietary",
+  "license": "MIT",
   "minimum-stability": "dev",
   "prefer-stable": true,
   "require": {
@@ -22,7 +22,6 @@
     "symfony/mailer": "6.0.*",
     "symfony/monolog-bundle": "^3.7",
     "symfony/runtime": "6.0.*",
-    "symfony/sendgrid-mailer": "6.0.*",
     "symfony/twig-bundle": "6.0.*",
     "symfony/yaml": "6.0.*",
     "twig/extra-bundle": "^3.3",

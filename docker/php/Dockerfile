@@ -1,6 +1,6 @@
 FROM elliotjreed/symfony-php-fpm-docker:php8.1
 
-LABEL Description="Florii API PHP Docker image." Vendor="Elliot J. Reed" Version="3.0"
+LABEL Description="API PHP Docker image." Vendor="Elliot J. Reed" Version="3.0"
 
 ENV TZ='Europe/London'
 
