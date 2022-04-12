@@ -44,8 +44,8 @@ class ContactForm
         ]);
 
         $this->mailer->send((new Email())
-            ->from('website-contact-form@elliotjreed.com')
-            ->to('website-contact-form@elliotjreed.com')
+            ->from($_ENV['CONTACT_FORM_EMAIL_ADDRESS'])
+            ->to($_ENV['CONTACT_FORM_EMAIL_ADDRESS'])
             ->subject('Email from www.elliotjreed.com')
             ->html($emailBody));
     }
