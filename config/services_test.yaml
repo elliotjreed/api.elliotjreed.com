@@ -20,16 +20,3 @@ services:
     arguments:
       $repo: '@Github\Api\Repo'
 
-  hcaptchaMockResponse:
-    class: Symfony\Component\HttpClient\Response\MockResponse
-    arguments:
-      $body: '{"success": true}'
-
-  hcaptchaMockHttpClient:
-    class: Symfony\Component\HttpClient\MockHttpClient
-    arguments:
-      $responseFactory: '@hcaptchaMockResponse'
-
-  App\Validator\Captcha:
-    arguments:
-      $httpClient: '@hcaptchaMockHttpClient'

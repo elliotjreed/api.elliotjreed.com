@@ -13,7 +13,7 @@
     "knplabs/github-api": "^3.6",
     "nelmio/cors-bundle": "^2.2",
     "nyholm/psr7": "^1.5",
-    "spatie/schema-org": "^3.10",
+    "spatie/schema-org": "^3.11",
     "symfony/console": "6.0.*",
     "symfony/dotenv": "6.0.*",
     "symfony/flex": "^2.1",

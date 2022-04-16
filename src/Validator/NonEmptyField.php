@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace App\Validator;
 
-class NonEmptyField extends Validator
+final class NonEmptyField extends Validator
 {
     public function valid(mixed $value): bool
     {
