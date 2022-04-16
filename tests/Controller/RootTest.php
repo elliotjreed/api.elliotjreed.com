@@ -15,10 +15,12 @@ final class RootTest extends WebTestCase
         $client->request('GET', '/');
 
         $this->assertResponseIsSuccessful();
-        $this->assertJsonStringEqualsJsonString('
-          {
-            "welcome": "Hi there! I\'m Elliot, welcome to my API!"
-          }
-        ', $client->getResponse()->getContent());
+        $this->assertJsonStringEqualsJsonString('{
+          "data": [
+            "Hi there! I\'m Elliot, welcome to my API!"
+          ],
+          "errors": [],
+          "redirectUrl": null
+        }', $client->getResponse()->getContent());
     }
 }

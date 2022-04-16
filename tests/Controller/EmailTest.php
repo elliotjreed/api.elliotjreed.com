@@ -24,19 +24,17 @@ final class EmailTest extends WebTestCase
         $this->client->request('POST', '/email/send');
 
         $this->assertResponseStatusCodeSame(400);
-        $this->assertJsonStringEqualsJsonString('
-          {
-            "errors": [
-              "Please fill in all required fields"
-            ],
-            "uri": "http://localhost/email/send",
-            "request": ""
-          }
-        ', $this->client->getResponse()->getContent());
+        $this->assertJsonStringEqualsJsonString('{
+          "data": null,
+          "errors": [
+            "Please fill in all required fields"
+          ],
+          "redirectUrl": null
+        }', $this->client->getResponse()->getContent());
         $this->assertFalse($this->client->getContainer()->get(MailerInterface::class)->called);
     }
 
-    public function testItReturnsEmptyJsonResponseWhenSuccessful(): void
+    public function testItReturnsStatusOfSentResponseWhenSuccessful(): void
     {
         $this->client->request('POST', '/email/send', [
             'name' => 'Mr Name',
@@ -46,7 +44,13 @@ final class EmailTest extends WebTestCase
         ]);
 
         $this->assertResponseIsSuccessful();
-        $this->assertJsonStringEqualsJsonString('{}', $this->client->getResponse()->getContent());
+        $this->assertJsonStringEqualsJsonString('{
+          "data": {
+            "status": "sent"
+          },
+          "errors": [],
+          "redirectUrl": null
+        }', $this->client->getResponse()->getContent());
         $this->assertTrue($this->client->getContainer()->get(MailerInterface::class)->called);
     }
 }

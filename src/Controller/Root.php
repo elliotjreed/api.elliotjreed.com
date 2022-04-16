@@ -4,14 +4,17 @@ declare(strict_types=1);
 
 namespace App\Controller;
 
-use Symfony\Component\HttpFoundation\JsonResponse;
+use App\Response\ApiJsonResponse;
+use App\Response\ApiResponseData;
 use Symfony\Component\Routing\Annotation\Route;
 
 final class Root
 {
     #[Route('/', methods: ['GET', 'POST', 'PUT', 'PATCH'])]
-    public function index(): JsonResponse
+    public function index(): ApiJsonResponse
     {
-        return new JsonResponse(['welcome' => "Hi there! I'm Elliot, welcome to my API!"]);
+        return new ApiJsonResponse(
+            (new ApiResponseData())->setData(["Hi there! I'm Elliot, welcome to my API!"])
+        );
     }
 }

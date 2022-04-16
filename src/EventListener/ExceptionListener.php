@@ -5,10 +5,11 @@ declare(strict_types=1);
 namespace App\EventListener;
 
 use App\Exception\Validation;
+use App\Response\ApiJsonResponse;
+use App\Response\ApiResponseData;
 use JsonException;
 use Psr\Log\LoggerInterface;
 use Psr\Log\LogLevel;
-use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpKernel\Event\ExceptionEvent;
@@ -30,7 +31,7 @@ final class ExceptionListener
         $event->setResponse($response);
     }
 
-    private function createApiResponse(Throwable $exception, Request $request): JsonResponse
+    private function createApiResponse(Throwable $exception, Request $request): ApiJsonResponse
     {
         $statusCode = Response::HTTP_INTERNAL_SERVER_ERROR;
         $errors = ['An unexpected error occurred.'];
@@ -59,10 +60,6 @@ final class ExceptionListener
             'request' => \substr($request->getContent(), 0, 2048)
         ]);
 
-        return new JsonResponse([
-            'errors' => $errors,
-            'uri' => $request->getUri(),
-            'request' => \substr($request->getContent(), 0, 2048)
-        ], $statusCode);
+        return new ApiJsonResponse((new ApiResponseData())->setErrorMessages(...$errors), $statusCode);
     }
 }

@@ -15,24 +15,21 @@ final class PersonTest extends WebTestCase
         $client->request('GET', '/blog/author');
 
         $this->assertResponseIsSuccessful();
-        $this->assertJsonStringEqualsJsonString('
-          {
+        $this->assertJsonStringEqualsJsonString('{
+          "data": {
             "@context": "https://schema.org",
             "@type": "Person",
-            "name": "Elliot J. Reed",
-            "givenName": "Elliot",
             "additionalName": "John",
-            "familyName": "Reed",
-            "alternateName": "Elliot Reed",
             "address": {
               "@type": "PostalAddress",
-              "addressLocality": "Nottingham",
-              "addressRegion": "Nottinghamshire",
               "addressCountry": {
                 "@type": "Country",
                 "name": "United Kingdom"
-              }
+              },
+              "addressLocality": "Nottingham",
+              "addressRegion": "Nottinghamshire"
             },
+            "alternateName": "Elliot Reed",
             "alumniOf": [
               {
                 "@type": "CollegeOrUniversity",
@@ -55,23 +52,31 @@ final class PersonTest extends WebTestCase
               "@type": "Place",
               "address": {
                 "@type": "PostalAddress",
-                "addressLocality": "Bury St. Edmunds",
-                "addressRegion": "Suffolk",
                 "addressCountry": {
                   "@type": "Country",
                   "name": "United Kingdom"
-                }
+                },
+                "addressLocality": "Bury St. Edmunds",
+                "addressRegion": "Suffolk"
               }
             },
             "description": "Technical Lead in software development based in Nottingham, United Kingdom.",
+            "familyName": "Reed",
             "gender": "https://schema.org/Male",
+            "givenName": "Elliot",
+            "height": {
+              "@type": "QuantitativeValue",
+              "unitCode": "cm",
+              "value": 183
+            },
             "honorificSuffix": "BA (Hons.)",
-            "jobTitle": "Technical Lead",
-            "knowsLanguage": "en-GB",
             "image": {
               "@type": "ImageObject",
               "url": "https://res.cloudinary.com/elliotjreed/image/upload/f_auto,q_auto/v1553434444/elliotjreed.jpg"
             },
+            "jobTitle": "Technical Lead",
+            "knowsLanguage": "en-GB",
+            "name": "Elliot J. Reed",
             "nationality": {
               "@type": "Country",
               "name": "United Kingdom"
@@ -82,13 +87,10 @@ final class PersonTest extends WebTestCase
               "https://www.linkedin.com/in/elliotjreed",
               "https://github.com/elliotjreed"
             ],
-            "url": "https://www.elliotjreed.com",
-            "height": {
-              "@type": "QuantitativeValue",
-              "unitCode": "cm",
-              "value": 183
-            }
-          }
-        ', $client->getResponse()->getContent());
+            "url": "https://www.elliotjreed.com"
+          },
+          "errors": [],
+          "redirectUrl": null
+        }', $client->getResponse()->getContent());
     }
 }

@@ -15,12 +15,14 @@ final class PostsTest extends WebTestCase
         $client->request('GET', '/blog/posts');
 
         $this->assertResponseIsSuccessful();
-        $this->assertJsonStringEqualsJsonString('
-          {
+        $this->assertJsonStringEqualsJsonString('{
+          "data": {
             "@context": "https://schema.org",
             "@type": "Blog",
             "blogPosts": []
-          }
-        ', $client->getResponse()->getContent());
+          },
+          "errors": [],
+          "redirectUrl": null
+        }', $client->getResponse()->getContent());
     }
 }

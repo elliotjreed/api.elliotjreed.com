@@ -5,14 +5,15 @@ declare(strict_types=1);
 namespace App\Controller;
 
 use App\Content\ElliotReed;
-use Symfony\Component\HttpFoundation\JsonResponse;
+use App\Response\ApiJsonResponse;
+use App\Response\ApiResponseData;
 use Symfony\Component\Routing\Annotation\Route;
 
 final class Person
 {
     #[Route('/blog/author', methods: ['GET'])]
-    public function index(): JsonResponse
+    public function index(): ApiJsonResponse
     {
-        return new JsonResponse(ElliotReed::schema()->toArray());
+        return new ApiJsonResponse((new ApiResponseData())->setData(ElliotReed::schema()->toArray()));
     }
 }
