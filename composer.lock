@@ -218,23 +218,23 @@
         },
         {
             "name": "elliotjreed/disposable-emails-filter",
-            "version": "3.2.1",
+            "version": "3.2.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/elliotjreed/disposable-emails-filter-php.git",
-                "reference": "a2dd3596c863b7769929e406b8d6c92b294cbaa8"
+                "reference": "1db80ed4d72816525403ad49f994784392f8cd21"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/elliotjreed/disposable-emails-filter-php/zipball/a2dd3596c863b7769929e406b8d6c92b294cbaa8",
-                "reference": "a2dd3596c863b7769929e406b8d6c92b294cbaa8",
+                "url": "https://api.github.com/repos/elliotjreed/disposable-emails-filter-php/zipball/1db80ed4d72816525403ad49f994784392f8cd21",
+                "reference": "1db80ed4d72816525403ad49f994784392f8cd21",
                 "shasum": ""
             },
             "require": {
                 "php": "^7.4|^8.0|^8.1"
             },
             "require-dev": {
-                "friendsofphp/php-cs-fixer": "^3.7",
+                "friendsofphp/php-cs-fixer": "^3.8",
                 "phpunit/phpunit": "^9.5",
                 "roave/security-advisories": "dev-master",
                 "squizlabs/php_codesniffer": "^3.6",
@@ -261,9 +261,9 @@
             "description": "A PHP package for determining whether an email address is from a disposable / temporary email address provider.",
             "support": {
                 "issues": "https://github.com/elliotjreed/disposable-emails-filter-php/issues",
-                "source": "https://github.com/elliotjreed/disposable-emails-filter-php/tree/3.2.1"
+                "source": "https://github.com/elliotjreed/disposable-emails-filter-php/tree/3.2.2"
             },
-            "time": "2022-03-20T15:02:45+00:00"
+            "time": "2022-04-17T09:34:47+00:00"
         },
         {
             "name": "knplabs/github-api",
