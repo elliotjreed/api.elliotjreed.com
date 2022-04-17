@@ -19,8 +19,7 @@ final class RootTest extends WebTestCase
           "data": [
             "Hi there! I\'m Elliot, welcome to my API!"
           ],
-          "errors": [],
-          "redirectUrl": null
+          "errors": []
         }', $client->getResponse()->getContent());
     }
 }

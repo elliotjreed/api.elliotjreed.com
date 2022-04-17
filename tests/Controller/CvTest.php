@@ -17,8 +17,7 @@ final class CvTest extends WebTestCase
         $this->assertResponseIsSuccessful();
         $this->assertJsonStringEqualsJsonString('{
           "data": "# A Test Post\nWith some test content",
-          "errors": [],
-          "redirectUrl": null
+          "errors": []
         }', $client->getResponse()->getContent());
     }
 

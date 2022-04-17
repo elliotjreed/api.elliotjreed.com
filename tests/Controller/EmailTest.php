@@ -28,8 +28,7 @@ final class EmailTest extends WebTestCase
           "data": null,
           "errors": [
             "Please fill in all required fields"
-          ],
-          "redirectUrl": null
+          ]
         }', $this->client->getResponse()->getContent());
         $this->assertFalse($this->client->getContainer()->get(MailerInterface::class)->called);
     }
@@ -48,8 +47,7 @@ final class EmailTest extends WebTestCase
           "data": {
             "status": "sent"
           },
-          "errors": [],
-          "redirectUrl": null
+          "errors": []
         }', $this->client->getResponse()->getContent());
         $this->assertTrue($this->client->getContainer()->get(MailerInterface::class)->called);
     }

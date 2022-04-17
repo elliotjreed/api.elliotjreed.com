@@ -89,8 +89,7 @@ final class PersonTest extends WebTestCase
             ],
             "url": "https://www.elliotjreed.com"
           },
-          "errors": [],
-          "redirectUrl": null
+          "errors": []
         }', $client->getResponse()->getContent());
     }
 }

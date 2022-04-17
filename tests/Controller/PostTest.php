@@ -61,8 +61,7 @@ final class PostTest extends WebTestCase
             "url": "https://www.elliotjreed.com/blog/1970-01-01/test-post",
             "wordCount": 7
           },
-          "errors": [],
-          "redirectUrl": null
+          "errors": []
         }', $client->getResponse()->getContent());
     }
 
@@ -79,8 +78,7 @@ final class PostTest extends WebTestCase
           "data": null,
           "errors": [
             "Blog post not found."
-          ],
-          "redirectUrl": null
+          ]
         }', $client->getResponse()->getContent());
     }
 }

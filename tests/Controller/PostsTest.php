@@ -21,8 +21,7 @@ final class PostsTest extends WebTestCase
             "@type": "Blog",
             "blogPosts": []
           },
-          "errors": [],
-          "redirectUrl": null
+          "errors": []
         }', $client->getResponse()->getContent());
     }
 }

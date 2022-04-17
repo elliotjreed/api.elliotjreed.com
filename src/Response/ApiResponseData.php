@@ -8,7 +8,6 @@ final class ApiResponseData
 {
     private mixed $data = null;
     private array $errorMessages = [];
-    private ?string $redirectUrl = null;
 
     public function getData(): mixed
     {
@@ -41,24 +40,11 @@ final class ApiResponseData
         return $this;
     }
 
-    public function getRedirectUrl(): ?string
-    {
-        return $this->redirectUrl;
-    }
-
-    public function setRedirectUrl(?string $redirectUrl): self
-    {
-        $this->redirectUrl = $redirectUrl;
-
-        return $this;
-    }
-
     public function toArray(): array
     {
         return [
             'data' => $this->getData(),
-            'errors' => $this->getErrorMessages(),
-            'redirectUrl' => $this->getRedirectUrl()
+            'errors' => $this->getErrorMessages()
         ];
     }
 }
