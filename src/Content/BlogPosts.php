@@ -6,6 +6,7 @@ namespace App\Content;
 
 use Psr\Http\Client\ClientExceptionInterface;
 use Spatie\SchemaOrg\Blog;
+use Spatie\SchemaOrg\BlogPosting;
 use Spatie\SchemaOrg\Schema;
 
 final class BlogPosts extends BlogPost
@@ -34,6 +35,8 @@ final class BlogPosts extends BlogPost
             }
         } catch (ClientExceptionInterface) { /* phpcs:ignore Generic.CodeAnalysis.EmptyStatement.DetectedCatch */
         }
+
+        \usort($posts, fn (BlogPosting $a, BlogPosting $b): int => $a->getProperty('dateCreated') <=> $b->getProperty('dateCreated'));
 
         return $posts;
     }
