@@ -82,6 +82,7 @@ class BlogPost
             ->alternateName('Elliot Reed')
             ->givenName('Elliot')
             ->additionalName('John')
-            ->familyName('Reed');
+            ->familyName('Reed')
+            ->url("https://www.elliotjreed.com");
     }
 }

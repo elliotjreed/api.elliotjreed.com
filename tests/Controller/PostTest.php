@@ -27,7 +27,8 @@ final class PostTest extends WebTestCase
               "alternateName": "Elliot Reed",
               "familyName": "Reed",
               "givenName": "Elliot",
-              "name": "Elliot J. Reed"
+              "name": "Elliot J. Reed",
+              "url": "https://www.elliotjreed.com"
             },
             "copyrightHolder": {
               "@type": "Person",
@@ -35,7 +36,8 @@ final class PostTest extends WebTestCase
               "alternateName": "Elliot Reed",
               "familyName": "Reed",
               "givenName": "Elliot",
-              "name": "Elliot J. Reed"
+              "name": "Elliot J. Reed",
+              "url": "https://www.elliotjreed.com"
             },
             "dateCreated": "1970-01-01T19:00:00+01:00",
             "dateModified": "1970-01-01T19:00:00+01:00",

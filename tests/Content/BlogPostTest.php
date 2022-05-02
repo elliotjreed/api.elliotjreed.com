@@ -49,7 +49,8 @@ final class BlogPostTest extends TestCase
                 'alternateName' => 'Elliot Reed',
                 'givenName' => 'Elliot',
                 'additionalName' => 'John',
-                'familyName' => 'Reed'
+                'familyName' => 'Reed',
+                'url' => 'https://www.elliotjreed.com'
             ],
             'url' => 'https://www.elliotjreed.com/blog/2020-01-01/post-link',
             'mainEntityOfPage' => 'https://www.elliotjreed.com/blog/2020-01-01/post-link',
@@ -60,7 +61,8 @@ final class BlogPostTest extends TestCase
                 'alternateName' => 'Elliot Reed',
                 'givenName' => 'Elliot',
                 'additionalName' => 'John',
-                'familyName' => 'Reed'
+                'familyName' => 'Reed',
+                'url' => 'https://www.elliotjreed.com'
             ],
             'publisher' => [
                 '@type' => 'Organization',
