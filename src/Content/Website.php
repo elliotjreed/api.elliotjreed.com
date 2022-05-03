@@ -20,7 +20,7 @@ final class Website
             ->alternateName('Elliot Reed')
             ->headline("Elliot J. Reed's Website")
             ->alternativeHeadline("Elliot Reed's Website")
-            ->dateCreated(new DateTime('2010-05-15'))
+            ->dateCreated(new DateTime('2010-05-15T00:00:00+01:00'))
             ->author(ElliotReed::schema())
             ->description('The personal website of Elliot Reed, containing current and past projects, and guides on PHP, Symfony, Javascript, React, Python, and Linux / DevOps.')
             ->inLanguage(['en-GB', 'en-US']);
