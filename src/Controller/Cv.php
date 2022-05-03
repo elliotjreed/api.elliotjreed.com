@@ -12,8 +12,8 @@ use Symfony\Component\Routing\Annotation\Route;
 
 final class Cv
 {
-    #[Route('/cv', methods: ['GET'])]
-    public function index(GithubCv $cv): ApiJsonResponse
+    #[Route('/api/v1/cv', methods: ['GET'])]
+    public function api(GithubCv $cv): ApiJsonResponse
     {
         return new ApiJsonResponse((new ApiResponseData())->setData($cv->asMarkdown()));
     }

@@ -12,7 +12,7 @@ final class PostsTest extends WebTestCase
     {
         $client = self::createClient();
 
-        $client->request('GET', '/blog/posts');
+        $client->request('GET', '/api/v1/blog/posts');
 
         $this->assertResponseIsSuccessful();
         $this->assertJsonStringEqualsJsonString('{
@@ -22,6 +22,20 @@ final class PostsTest extends WebTestCase
             "blogPosts": []
           },
           "errors": []
+        }', $client->getResponse()->getContent());
+    }
+
+    public function testItReturnsBlogPostSchema(): void
+    {
+        $client = self::createClient();
+
+        $client->request('GET', '/schema/blog/posts');
+
+        $this->assertResponseIsSuccessful();
+        $this->assertJsonStringEqualsJsonString('{
+          "@context": "https://schema.org",
+          "@type": "Blog",
+          "blogPosts": []
         }', $client->getResponse()->getContent());
     }
 }

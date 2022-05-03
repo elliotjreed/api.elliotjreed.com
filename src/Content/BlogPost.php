@@ -83,6 +83,6 @@ class BlogPost
             ->givenName('Elliot')
             ->additionalName('John')
             ->familyName('Reed')
-            ->url("https://www.elliotjreed.com");
+            ->url('https://www.elliotjreed.com');
     }
 }

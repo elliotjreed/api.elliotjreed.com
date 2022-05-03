@@ -12,7 +12,7 @@ final class CvTest extends WebTestCase
     {
         $client = self::createClient();
 
-        $client->request('GET', '/cv');
+        $client->request('GET', '/api/v1/cv');
 
         $this->assertResponseIsSuccessful();
         $this->assertJsonStringEqualsJsonString('{

@@ -21,7 +21,7 @@ final class EmailTest extends WebTestCase
 
     public function testItReturnsErrorWhenRequestIsInvalid(): void
     {
-        $this->client->request('POST', '/email/send');
+        $this->client->request('POST', '/api/v1/email/send');
 
         $this->assertResponseStatusCodeSame(400);
         $this->assertJsonStringEqualsJsonString('{
@@ -35,7 +35,7 @@ final class EmailTest extends WebTestCase
 
     public function testItReturnsStatusOfSentResponseWhenSuccessful(): void
     {
-        $this->client->request('POST', '/email/send', [
+        $this->client->request('POST', '/api/v1/email/send', [
             'name' => 'Mr Name',
             'email' => 'email@example.com',
             'message' => 'A Message',

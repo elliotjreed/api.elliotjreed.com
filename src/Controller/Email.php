@@ -13,8 +13,8 @@ use Symfony\Component\Routing\Annotation\Route;
 
 final class Email extends AbstractController
 {
-    #[Route('/email/send', methods: ['POST', 'OPTIONS'])]
-    public function index(Request $request, ContactForm $contactForm): ApiJsonResponse
+    #[Route('/api/v1/email/send', methods: ['POST', 'OPTIONS'])]
+    public function send(Request $request, ContactForm $contactForm): ApiJsonResponse
     {
         $contactForm->sendEmail(
             $request->request->get('name'),

@@ -11,9 +11,7 @@ final class ElliotReedTest extends TestCase
 {
     public function testItRendersSchema(): void
     {
-        $schema = ElliotReed::schema();
-
-        $expected = [
+        $this->assertSame([
             '@context' => 'https://schema.org',
             '@type' => 'Person',
             'name' => 'Elliot J. Reed',
@@ -83,8 +81,6 @@ final class ElliotReedTest extends TestCase
                 'unitCode' => 'cm',
                 'value' => 183
             ]
-        ];
-
-        $this->assertSame($expected, $schema->toArray());
+        ], ElliotReed::schema()->toArray());
     }
 }
