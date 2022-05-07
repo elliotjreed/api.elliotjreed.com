@@ -6,10 +6,11 @@ namespace App\Content;
 
 use DateTime;
 use Spatie\SchemaOrg\Schema;
+use Spatie\SchemaOrg\WebSite as WebSiteSchema;
 
 final class Website
 {
-    public static function schema(): \Spatie\SchemaOrg\WebSite
+    public static function schema(): WebSiteSchema
     {
         return Schema::webSite()
             ->about('Elliot Reed is a Technical Lead based in Nottingham, United Kingdom with over 10 years experience in software development and e-commerce management')

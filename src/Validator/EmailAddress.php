@@ -8,7 +8,7 @@ use ElliotJReed\DisposableEmail\Email;
 
 final class EmailAddress extends Validator
 {
-    public function __construct(private Email $disposableEmailAddress)
+    public function __construct(private readonly Email $disposableEmailAddress)
     {
     }
 

@@ -14,10 +14,10 @@ use Twig\Environment;
 class ContactForm
 {
     public function __construct(
-        private NonEmptyField $nonEmptyFieldValidator,
-        private EmailAddress $emailAddressValidator,
-        private Environment $twig,
-        private MailerInterface $mailer
+        private readonly NonEmptyField $nonEmptyFieldValidator,
+        private readonly EmailAddress $emailAddressValidator,
+        private readonly Environment $twig,
+        private readonly MailerInterface $mailer
     ) {
     }
 
