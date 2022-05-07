@@ -7,19 +7,20 @@ namespace App\Controller;
 use App\Content\ElliotReed;
 use App\Response\ApiJsonResponse;
 use App\Response\ApiResponseData;
+use Psr\Cache\CacheItemPoolInterface;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\Routing\Annotation\Route;
 
 final class Person
 {
     #[Route('/api/v1/person', methods: ['GET'])]
-    public function api(): ApiJsonResponse
+    public function api(CacheItemPoolInterface $cache): ApiJsonResponse
     {
         return new ApiJsonResponse((new ApiResponseData())->setData(ElliotReed::schema()->toArray()));
     }
 
     #[Route('/schema/person', methods: ['GET'])]
-    public function schema(): JsonResponse
+    public function schema(CacheItemPoolInterface $cache): JsonResponse
     {
         return new JsonResponse(ElliotReed::schema()->toArray());
     }

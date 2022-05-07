@@ -128,7 +128,7 @@ final class PostTest extends WebTestCase
 
         $client->getContainer()->get(Repo::class)->throwException = true;
 
-        $client->request('GET', '/api/v1/blog/post/1970-01-01/test-post');
+        $client->request('GET', '/api/v1/blog/post/1970-01-01/missing-test-post');
 
         $this->assertResponseStatusCodeSame(404);
         $this->assertJsonStringEqualsJsonString('{
@@ -145,7 +145,7 @@ final class PostTest extends WebTestCase
 
         $client->getContainer()->get(Repo::class)->throwException = true;
 
-        $client->request('GET', '/schema/blog/post/1970-01-01/test-post');
+        $client->request('GET', '/schema/blog/post/1970-01-01/missing-test-post');
 
         $this->assertResponseStatusCodeSame(404);
         $this->assertJsonStringEqualsJsonString('{
