@@ -16,7 +16,7 @@ final class Contents extends \Github\Api\Repository\Contents
     {
     }
 
-    public function show($username, $repository, $path = null, $reference = null): array
+    public function show($username, $repository, $path = null, $reference = null, $requestHeaders = []): array
     {
         return $this->repositoryContents;
     }

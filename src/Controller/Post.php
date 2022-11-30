@@ -8,7 +8,6 @@ use App\Content\BlogPost;
 use App\Exception\BlogPostNotFound;
 use App\Response\ApiJsonResponse;
 use App\Response\ApiResponseData;
-use DateInterval;
 use Psr\Cache\CacheItemPoolInterface;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
@@ -28,7 +27,7 @@ final class Post
             $data = $cache->get(
                 $date . '_' . $link . '.json',
                 static function (ItemInterface $item) use ($post, $link, $date): ApiResponseData {
-                    $item->expiresAfter(new DateInterval('P3M'));
+                    $item->expiresAfter(new \DateInterval('P3M'));
 
                     return (new ApiResponseData())->setData($post->fetch($link, $date)->toArray());
                 }
@@ -51,7 +50,7 @@ final class Post
             $data = $cache->get(
                 $date . '_' . $link . '.ld.json',
                 static function (ItemInterface $item) use ($post, $link, $date): array {
-                    $item->expiresAfter(new DateInterval('P3M'));
+                    $item->expiresAfter(new \DateInterval('P3M'));
 
                     return $post->fetch($link, $date)->toArray();
                 }

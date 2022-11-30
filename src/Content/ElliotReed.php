@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace App\Content;
 
-use DateTime;
 use Spatie\SchemaOrg\Person;
 use Spatie\SchemaOrg\Schema;
 
@@ -33,7 +32,7 @@ final class ElliotReed
                     ->name('Stowupland High School')
                     ->url('https://www.stowuplandhighschool.co.uk')
             ])
-            ->birthDate(new DateTime('1990-02-25 12:21:00'))
+            ->birthDate(new \DateTime('1990-02-25 12:21:00'))
             ->birthPlace(Schema::place()
                 ->address(Schema::postalAddress()
                     ->addressLocality('Bury St. Edmunds')
