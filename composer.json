@@ -6,14 +6,14 @@
   "minimum-stability": "dev",
   "prefer-stable": true,
   "require": {
-    "php": ">=8.1",
+    "php": ">=8.2",
     "ext-ctype": "*",
     "ext-iconv": "*",
-    "elliotjreed/disposable-emails-filter": "^3.3",
-    "knplabs/github-api": "^3.9",
-    "nelmio/cors-bundle": "^2.2",
+    "elliotjreed/disposable-emails-filter": "^3.4",
+    "knplabs/github-api": "^3.11",
+    "nelmio/cors-bundle": "^2.3",
     "nyholm/psr7": "^1.5",
-    "spatie/schema-org": "^3.13",
+    "spatie/schema-org": "^3.14",
     "symfony/cache": "6.2.*",
     "symfony/console": "6.2.*",
     "symfony/dotenv": "6.2.*",
@@ -29,7 +29,7 @@
     "twig/twig": "^3.5"
   },
   "require-dev": {
-    "friendsofphp/php-cs-fixer": "^3.13",
+    "friendsofphp/php-cs-fixer": "^3.15",
     "roave/security-advisories": "dev-latest",
     "squizlabs/php_codesniffer": "^3.7",
     "symfony/browser-kit": "6.2.*",
@@ -44,7 +44,8 @@
     "sort-packages": true,
     "allow-plugins": {
       "symfony/flex": true,
-      "symfony/runtime": true
+      "symfony/runtime": true,
+      "php-http/discovery": true
     }
   },
   "autoload": {
@@ -64,7 +65,13 @@
     "symfony/polyfill-php73": "*",
     "symfony/polyfill-php74": "*",
     "symfony/polyfill-php80": "*",
-    "symfony/polyfill-php81": "*"
+    "symfony/polyfill-php81": "*",
+    "symfony/polyfill-php82": "*",
+    "symfony/polyfill-intl-icu": "*",
+    "symfony/polyfill-intl-idn": "*",
+    "symfony/polyfill-mbstring": "*",
+    "symfony/polyfill-apcu": "*"
+
   },
   "scripts": {
     "auto-scripts": {
