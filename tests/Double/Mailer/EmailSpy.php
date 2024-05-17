@@ -10,7 +10,7 @@ final class EmailSpy implements MailerInterface
 {
     public bool $called = false;
 
-    public function send(RawMessage $message, Envelope $envelope = null): void
+    public function send(RawMessage $message, ?Envelope $envelope = null): void
     {
         $this->called = true;
     }

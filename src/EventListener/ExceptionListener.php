@@ -7,12 +7,14 @@ namespace App\EventListener;
 use App\Exception\Validation;
 use App\Response\ApiJsonResponse;
 use App\Response\ApiResponseData;
+use JsonException;
 use Psr\Log\LoggerInterface;
 use Psr\Log\LogLevel;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpKernel\Event\ExceptionEvent;
 use Symfony\Component\HttpKernel\Exception\HttpExceptionInterface;
+use Throwable;
 
 final class ExceptionListener
 {
@@ -29,7 +31,7 @@ final class ExceptionListener
         $event->setResponse($response);
     }
 
-    private function createApiResponse(\Throwable $exception, Request $request): ApiJsonResponse
+    private function createApiResponse(Throwable $exception, Request $request): ApiJsonResponse
     {
         $statusCode = Response::HTTP_INTERNAL_SERVER_ERROR;
         $errors = ['An unexpected error occurred.'];
@@ -45,12 +47,12 @@ final class ExceptionListener
         } elseif ($exception instanceof Validation) {
             $statusCode = Response::HTTP_BAD_REQUEST;
             $errors = $exception->getErrors();
-        } elseif ($exception instanceof \JsonException) {
+        } elseif ($exception instanceof JsonException) {
             $statusCode = Response::HTTP_NOT_ACCEPTABLE;
             $errors = ['Malformed JSON in request body.'];
         }
 
-        $log = \get_class($exception) . ': ' . $exception->getMessage() .
+        $log = $exception::class . ': ' . $exception->getMessage() .
             '" at ' . $exception->getFile() . ' line ' . $exception->getLine();
 
         $this->logger->log($logLevel, $log, [

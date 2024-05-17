@@ -7,6 +7,7 @@ namespace App\Tests\Validator;
 use App\Validator\EmailAddress;
 use ElliotJReed\DisposableEmail\Email;
 use PHPUnit\Framework\TestCase;
+use SplFileObject;
 
 final class EmailAddressTest extends TestCase
 {
@@ -18,7 +19,7 @@ final class EmailAddressTest extends TestCase
     public function testItReturnsFalseWithInvalidEmailAddressErrorMessageWhenEmailAddressIsInvalid(): void
     {
         $filePath = \sys_get_temp_dir() . '/phpunit-emailaddresstest-disposable-list.txt';
-        $file = new \SplFileObject($filePath, 'wb+');
+        $file = new SplFileObject($filePath, 'wb+');
 
         $validator = new EmailAddress(new Email($file->getRealPath()));
 
@@ -29,7 +30,7 @@ final class EmailAddressTest extends TestCase
     public function testItReturnsFalseWithInvalidEmailAddressMessageWhenEmailAddressIsDisposableEmailAddress(): void
     {
         $filePath = \sys_get_temp_dir() . '/phpunit-emailaddresstest-disposable-list.txt';
-        $file = new \SplFileObject($filePath, 'wb+');
+        $file = new SplFileObject($filePath, 'wb+');
         $file->fwrite('example.com');
 
         $validator = new EmailAddress(new Email($file->getRealPath()));
@@ -41,7 +42,7 @@ final class EmailAddressTest extends TestCase
     public function testItReturnsTrueWhenEmailAddressAppearsToBeValid(): void
     {
         $filePath = \sys_get_temp_dir() . '/phpunit-emailaddresstest-disposable-list.txt';
-        $file = new \SplFileObject($filePath, 'wb+');
+        $file = new SplFileObject($filePath, 'wb+');
         $file->fwrite('test.com');
 
         $validator = new EmailAddress(new Email($file->getRealPath()));

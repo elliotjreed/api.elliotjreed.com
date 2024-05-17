@@ -7,6 +7,7 @@ namespace App\Controller;
 use App\Content\BlogPosts;
 use App\Response\ApiJsonResponse;
 use App\Response\ApiResponseData;
+use DateInterval;
 use Psr\Cache\CacheItemPoolInterface;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\Routing\Attribute\Route;
@@ -20,7 +21,7 @@ final class Posts
         $data = $cache->get(
             'posts.json',
             static function (ItemInterface $item) use ($posts): ApiResponseData {
-                $item->expiresAfter(new \DateInterval('P1D'));
+                $item->expiresAfter(new DateInterval('P1D'));
 
                 return (new ApiResponseData())->setData($posts->all()->toArray());
             }
@@ -35,7 +36,7 @@ final class Posts
         $data = $cache->get(
             'posts.ld.json',
             static function (ItemInterface $item) use ($posts): array {
-                $item->expiresAfter(new \DateInterval('P1D'));
+                $item->expiresAfter(new DateInterval('P1D'));
 
                 return $posts->all()->toArray();
             }

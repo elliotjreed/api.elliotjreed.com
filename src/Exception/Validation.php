@@ -4,11 +4,14 @@ declare(strict_types=1);
 
 namespace App\Exception;
 
-final class Validation extends \Exception
+use Exception;
+use Throwable;
+
+final class Validation extends Exception
 {
     private array $errors = [];
 
-    public function __construct(string $message = '', int $code = 0, \Throwable $previous = null)
+    public function __construct(string $message = '', int $code = 0, ?Throwable $previous = null)
     {
         $this->errors[] = $message;
         parent::__construct($message, $code, $previous);

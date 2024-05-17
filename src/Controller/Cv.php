@@ -8,6 +8,7 @@ use App\Content\Cv as GithubCv;
 use App\Response\ApiJsonResponse;
 use App\Response\ApiResponseData;
 use App\Response\MarkdownResponse;
+use DateInterval;
 use Psr\Cache\CacheItemPoolInterface;
 use Symfony\Component\Routing\Attribute\Route;
 use Symfony\Contracts\Cache\ItemInterface;
@@ -20,7 +21,7 @@ final class Cv
         $data = $cache->get(
             'cv.json',
             static function (ItemInterface $item) use ($cv): ApiResponseData {
-                $item->expiresAfter(new \DateInterval('P1W'));
+                $item->expiresAfter(new DateInterval('P1W'));
 
                 return (new ApiResponseData())->setData($cv->asMarkdown());
             }
@@ -35,7 +36,7 @@ final class Cv
         $data = $cache->get(
             'cv.md',
             static function (ItemInterface $item) use ($cv): string {
-                $item->expiresAfter(new \DateInterval('P1W'));
+                $item->expiresAfter(new DateInterval('P1W'));
 
                 return $cv->asMarkdown();
             }

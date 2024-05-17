@@ -5,6 +5,8 @@ declare(strict_types=1);
 namespace App\Content;
 
 use App\Exception\BlogPostNotFound;
+use DateTimeImmutable;
+use DateTimeZone;
 use Github\Api\Repo;
 use Github\Client;
 use Psr\Cache\CacheItemPoolInterface;
@@ -44,7 +46,7 @@ class BlogPost
 
     protected function buildPostSummary(string $content, string $link, string $dateString): BlogPosting
     {
-        $date = (new \DateTimeImmutable($dateString))->setTimezone(new \DateTimeZone('Europe/London'))->setTime(19, 0);
+        $date = (new DateTimeImmutable($dateString))->setTimezone(new DateTimeZone('Europe/London'))->setTime(19, 0);
         $websiteUrl = 'https://www.elliotjreed.com/blog/' . $dateString . '/'
             . \strtolower(\str_replace(' ', '-', $link));
 
