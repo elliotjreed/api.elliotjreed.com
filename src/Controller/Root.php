@@ -7,7 +7,7 @@ namespace App\Controller;
 use App\Response\ApiJsonResponse;
 use App\Response\ApiResponseData;
 use Symfony\Component\HttpFoundation\JsonResponse;
-use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Routing\Attribute\Route;
 
 final class Root
 {

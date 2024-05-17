@@ -9,7 +9,7 @@ use App\Response\ApiJsonResponse;
 use App\Response\ApiResponseData;
 use Psr\Cache\CacheItemPoolInterface;
 use Symfony\Component\HttpFoundation\JsonResponse;
-use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Routing\Attribute\Route;
 use Symfony\Contracts\Cache\ItemInterface;
 
 final class Posts

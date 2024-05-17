@@ -9,7 +9,7 @@ use App\Response\ApiJsonResponse;
 use App\Response\ApiResponseData;
 use App\Response\MarkdownResponse;
 use Psr\Cache\CacheItemPoolInterface;
-use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Routing\Attribute\Route;
 use Symfony\Contracts\Cache\ItemInterface;
 
 final class Cv

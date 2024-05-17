@@ -9,7 +9,6 @@ services:
       - elliotjreed-api
     volumes:
       - ./.env.local:/var/www/html/.env
-
   elliotjreed-api-nginx:
     image: elliotjreed/elliotjreed-api-nginx:latest
     container_name: elliotjreed-api-nginx
